@@ -121,11 +121,12 @@
 %%             postcode={},
 %%             state={},
 %%             country={}}
-\author[Computer_a]{Avichay Mazin}
-\author[Computer_a]{Jonatan Boritski}
 \author[Computer_b]{Or Anijar}
+\author[Computer_a]{Jonatan Boritski}
 \author[Computer_a]{Sapir Dahan}
 \author[soreq]{Elad Farkash}
+\author[Computer_a]{Avichay Mazin}
+\author[technion]{Shmuel Osovski}
 \author[fracture]{Mor Mega}
 %\author[Computer_a,Computer_a,Computer_b]{Avichay Mazin$^a$, Jonatan Boritski$^a$, Or Anijar$^b$, Sapir Dahan$^a$, Elad Farkash$^c$, Mor Mega$^d$}
 
@@ -148,6 +149,11 @@
             city={Ariel},
             postcode={40700},
             country={Israel}}
+
+\affiliation[technion]{organization={Faculty of Mechanical Engineering, Technion - Israel Institute of Technology},%Department and Organization
+city={Haifa},
+postcode={32000},
+country={Israel}}
 
 \begin{abstract}
 %% Text of abstract
@@ -425,40 +431,58 @@ where $I_{i,j}$ is the intensity of the pixel in the $i$ row and $j$ column.
 
 \section{Dataset} \label{Sec:dataset}
 
-The dataset for this research comprises 63 SEM images of Ti-6Al-4V fatigue specimens, captured at a resolution of 4576 by 4096 pixels. Each image offers a view field of 5.5 mm with an approximate pixel size of 1.34 $\mu$m, providing detailed insights into the specimens microstructures and fracture patterns, essential for our analysis. The images were captured following manufacturer-recommended printing parameters and categorized based on print quality: 30 images in P1 for standard printing, 21 in P2 for improved printing, and 12 in P3 for lesser quality printing. The method of specimen production and the experimental setup are extensively documented elsewhere \cite{navickaite2022efficient}, which offers in-depth insights into the procedural aspects and the experimental framework relevant to the SEM images used in this study.
+The dataset in the research comprises 63 SEM images of Ti-6Al-4V alloy fatigue specimens, captured at a resolution of 4576 by 4096 pixels. Each image provides a detailed view of 5.5 mm with an approximate pixel size of 1.34 $\mu$m, allowing for an in-depth analysis of the specimens microstructures and fracture patterns. The images are categorized based on the print quality recommended by the manufacturer into three groups: 30 images in P1 for standard printing, 21 in P2 for enhanced quality, and 12 in P3 indicating lower quality. Extensive documentation on specimen production and the experimental setup is available in previous work \cite{navickaite2022efficient}, offering a comprehensive context for the SEM images used in this research.
 
-To prepare the dataset for algorithmic training, metadata at the bottom of each image detailing technical aspects such as the view field, working distance (WD), and beam intensity (BI) was removed by cropping the images to a uniform resolution of 4096 by 4096 pixels. This preprocessing step, as illustrated in the first step at Figure~\ref{steps_was_done}, known as 'a', demonstrates the exclusion of the metadata section to focus solely on the relevant features for research analysis.
-
-
-Additionally, the dataset includes duplicated photographs from opposite viewpoints to provide a comprehensive analysis. Figure~\ref{same_material_from_both_sides} serves as a key example, showcasing SEM images A and B of the same Ti-6Al-4V fatigue specimen from opposite sides. This not only highlights the value of multiple perspectives in understanding material behavior but also represents an example of the SEM images from our dataset, illustrating the detailed microstructural insights these images provide.
-
-
-\begin{figure}[b!]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/side_by_side.png}
-  \caption{SEM scan of a Ti-6Al-4V fatigue specimen from two opposite sides (A and B), illustrating the fracture surface from different perspectives.}
+  \caption{SEM images of a Ti-6Al-4V fatigue specimen from two opposing viewpoints (A and B), showcasing the fracture surfaces from different perspectives.}
   \label{same_material_from_both_sides}
 \end{figure}
 
-
-To train the UNet model for extracting the external contour of Ti-6Al-4V fatigue specimens from SEM images, the dataset consisting of 63 images was meticulously divided to facilitate robust model training and evaluation. A total of 50 images were strategically allocated to the training set, representing approximately 79\% of the dataset, while the remaining 13 images comprised the test set, constituting approximately 21\%. This division, introduced in Table \ref{tab:dataset_division}, was carefully chosen to ensure a balanced representation of specimens across both sets, enabling the UNet model to learn from a diverse range of data while also providing a separate subset for unbiased evaluation of its contour extraction capabilities. The allocation of a larger proportion of images to the training set allows the model to acquire a comprehensive understanding of the underlying patterns in the data, while the smaller test set serves as a litmus test for the model's ability to generalize to unseen data. By adhering to this division strategy, we aimed to strike a harmonious balance between model complexity and generalization performance, thereby enhancing the reliability and applicability of the trained UNet model for contour extraction tasks in SEM images.
-
-The steps involved in preparing, dividing, preprocessing, and training the images for the UNet model are depicted in Figure \ref{steps_was_done}.
+An important aspect of the dataset is the inclusion of some duplicated images, captured from opposite viewpoints of certain specimens. This feature is crucial for a comprehensive analysis but does not apply to every image in the dataset. The duplicated views ensure that material behavior and fracture details are more thoroughly captured, aiding in the holistic examination of specimen conditions. Figure~\ref{same_material_from_both_sides} provides an example of this, showcasing SEM images of a Ti-6Al-4V fatigue specimen from two opposing viewpoints (A and B), and highlighting the fracture surfaces from different perspectives.
 
 
 
 
-\begin{figure*}[t!]
+
+\vspace{\baselineskip}
+To tailor the dataset for algorithmic analysis, unnecessary metadata detailing technical specifications such as the view field, working distance (WD), and beam intensity (BI) was removed from each image. This cleansing process was accomplished by cropping the images to a uniform resolution of 4096 by 4096 pixels, thereby eliminating any extraneous data. The primary objective of this preprocessing step was to refine the dataset to ensure that the learning algorithms are focused solely on the pertinent features of the specimens. By concentrating on these relevant aspects, the approach significantly enhances the potential for accurate analysis by the subsequent models. This step, crucial for maintaining the integrity and relevance of the dataset, is depicted in Figure~\ref{steps_was_done} as step '(a)'.
+
+
+\begin{figure*}[h!]
   \centering
   \includegraphics[width=1\linewidth, height=0.47\textheight]{figures/steps_dataset3.png}
-  \caption{\textcolor{red}{Please add a,b,c,d below each image with parenthesis (). Please describe in the caption what is presented in each part of this figure as a....,b.... Look at examples from articles from the journal we are applying for. In the first part, change the caption to 63 images. In the third part, change the text on the left to 63 images, 50 - train, 13 - test. The caption should be decreased resolution:128X128 pixels}. Visualization of the framework used in this study: a is showing the transition from the original resolution (4576$\times$4096) to 4096$\times$4096 pixels. After that, b is showing the divide for train and test, 50 for train and 13 for test. Next, c is showing the reduction of image resolution to 128$\times$128 pixels. And last, d is showing the UNet model trained to extract the external contour of Ti-6Al-4V fatigue specimens from SEM images.}
+  \caption{Overview of the dataset preparation process: (a) Cropping images to remove metadata and standardize resolution; (b) Division to train and test set, 50 images for training and 13 for test; (c) Reduce resolution to 128*128 pixels for make the UNet models less complicated; (d) Final images with masks applied for model training.}
   \label{steps_was_done}
 \end{figure*}
 
+
+In addition to preprocessing, the dataset underwent augmentation to enhance the robustness of the UNet models without increasing the overall number of images. Augmentation techniques such as rotation, flipping, and scaling were applied to simulate a variety of viewing angles and specimen orientations. This process was essential for preparing the models to recognize and analyze specimens under diverse conditions, thereby improving their ability to generalize from the training data to new, unseen images. Although the dataset size remained unchanged, the augmentation significantly diversified the range of features that the models were exposed to during training.
+\vspace{\baselineskip}
+
+Our research utilizes two distinct UNet models designed for complementary analytical tasks. The first model's objective is to extract the external contours of the specimens, effectively separating the subject of interest from the background. The second model focuses on identifying and segmenting regions within the specimens where cracks are present, providing critical insights into areas indicative of material failure.
+
+
+
+The manual labeling process was an essential step in preparing the dataset for the training of these models. Experts meticulously annotated the external boundaries of the specimens for contour extraction and marked the regions exhibiting cracks for focused analysis by the second model. This manual intervention ensures that the models are trained on accurate and relevant features, significantly enhancing their analytical capabilities. An example of the labeling process for the two UNet models is shown in Figure~\ref{lables}, where 'A','B','C' are the original image after crop, the external boundary of the specimen that was done manually, and the mask the first UNet will get later as labeld data, accordingly.
+'D','E','F' are the original image after crop, the boundary of specimen crack, and the mask the second UNet will get as labeld data, accordingly.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=1\textwidth]{figures/lables.png}
+  \caption{Manual labeling process illustrated for the two UNet models. The top row ('A', 'B', 'C') demonstrates the stages for external contour detection: 'A' shows the cropped input image, 'B' depicts the manually identified external contour of the specimen, and 'C' presents the generated mask, which serves as labeled data for training the first UNet model. The bottom row ('D', 'E', 'F') outlines the crack detection process: 'D' is the cropped input image, 'E' highlights the manually delineated crack within the specimen, and 'F' shows the corresponding mask created for use as labeled data in training the second UNet model.}
+  \label{lables}
+\end{figure}
+
+Following this detailed annotation work, the dataset was divided, with 50 images allocated to the training set and the remaining 13 to the test set. This division ensures a robust training regime and an effective evaluation framework for both UNet models, facilitating comprehensive learning and accurate performance assessment.
+
+This division of the dataset into the training and test sets is detailed in Table~\ref{tab:dataset_division}, providing a clear overview of the distribution of images and ensuring a balanced approach for model training and validation.
+
 \begin{table}[htbp]
 \centering
-\small % Set font size to small
-\caption{Dataset Division}
+\small
+\caption{Division of the dataset into training and test sets}
 \label{tab:dataset_division}
 \begin{tabular}{@{}lcc@{}}
 \toprule
@@ -468,6 +492,8 @@ Test Set & 13 & 20.63 \\ \bottomrule
 \textbf{Total} & \textbf{63} & \textbf{100} \\ \bottomrule
 \end{tabular}
 \end{table}
+
+Through this comprehensive dataset preparation, encompassing precise image selection, preprocessing, manual labeling, and strategic division, we have established a solid foundation for the UNet models. This foundation is critical for accurately analyzing and learning from the SEM images of Ti-6Al-4V fatigue specimens, enhancing the reliability and efficacy of our material failure analysis.
 
 
 \vspace{\baselineskip}
@@ -481,9 +507,19 @@ Test Set & 13 & 20.63 \\ \bottomrule
 \label{Sec: Proposed Artificial intelligence-driven framework}
 \subsection{Preliminary Operations}
 \label{sec:prelimnary_operations}
-As discussed in the dataset section, a critical preprocessing step is applied to the input data before the application of our Convolutional Neural Network (CNN) to enhance the model's learning efficiency and relevance. The dataset comprises SEM images, each with a dimension of 4576x4096 pixels. These images, however, include metadata at the bottom detailing technical aspects such as the view field, working distance (WD), and beam intensity (BI), which are not pertinent to the analysis of material microstructures or fracture patterns.
 
-To direct the model's focus solely on relevant features, we have implemented an image cropping process to remove this metadata, thereby adjusting the images to a uniform resolution of 4096x4096 pixels. This preprocessing step, previously illustrated and discussed in the dataset section and depicted again in Figure~\ref{steps_was_done} (step 'a'), is crucial for excluding unnecessary information and ensuring consistency across the dataset. This adjustment significantly improves the dataset's quality for algorithmic training, enabling the neural network to focus on the essential aspects of the images that are critical for analyzing material behavior and fracture mechanics.
+In the progression from raw data to a format amenable for deep learning analysis, we employed TensorFlow, an open-source machine learning framework that offers extensive libraries for developing and training AI models. TensorFlow's functionalities were instrumental in our Preliminary Operations, enhancing the dataset readiness for analysis through our dual UNet models and ensuring the data accurately captures the complexities of material fractures.
+
+\subsubsection{Dataset Refinement for Deep Learning}
+As part of the dataset refinement, we utilized TensorFlow to resize the images to a manageable resolution of 128x128 pixels. This adjustment balances the necessity of maintaining essential microstructural details against the constraints of computational efficiency. Alongside resizing, TensorFlow facilitated the normalization of each pixel value to a range between 0 and 1. This normalization process standardizes the input data, aiding the models' learning algorithms by providing a consistent scale for image intensities.
+
+\subsubsection{Data Augmentation Strategy}
+To bolster the training dataset diversity and better simulate varied imaging conditions, we leveraged TensorFlow data augmentation capabilities. Implementing strategic transformations—rotations, flips, and zooms—augmented the dataset comprehensiveness without distorting the inherent properties of the material microstructures. These steps, crucial for enhancing model robustness and generalizability, underscore TensorFlow pivotal role in preparing data that empowers our models to more accurately identify and classify fracture patterns.
+
+\subsubsection{Model-Specific Adjustments}
+Precise adjustments were made to cater to the specialized requirements of our two UNet models. Contrary to the image resizing and normalization tasks where TensorFlow capabilities were leveraged for efficiency, the process of labeling for model training was conducted manually. This manual labeling was crucial for ensuring the accuracy of the dataset, particularly for the tasks at hand. For the model tasked with extracting external contours, establishing a clear demarcation between the specimen and its background was paramount, necessitating a nuanced understanding and interpretation of the images that automated processes could not achieve. Similarly, the manual identification and labeling of internal features such as cracks were critical for the second model, which focuses on internal contour detection. These painstakingly detailed manual annotations ensure that the models receive data that is optimally aligned with their analytical objectives, underscoring the indispensable role of expert knowledge in the initial stages of model preparation. While TensorFlow played a pivotal role in the data preprocessing and augmentation stages, the manual labeling process highlights the synergy between human expertise and advanced machine learning technologies in developing robust AI-driven frameworks for material science.
+
+Through the application of TensorFlow in these Preliminary Operations, we have ensured our dataset is not only meticulously prepared but also optimized for the specific demands of deep learning analysis. By leveraging TensorFlow for image resizing, pixel normalization, and targeted data augmentation, we have established a robust foundation for our analytical models. This preparation enhances both the efficiency of model training and the accuracy of predictive outcomes, highlighting TensorFlow integral role in advancing the application of artificial intelligence in material science.
 
 
 
@@ -502,50 +538,53 @@ To direct the model's focus solely on relevant features, we have implemented an 
 \end{figure}
 
 \subsection{Description of Conceptual Training Algorithm} \label{sec:alg_train}
-In this study, we applied artificial intelligence, specifically two UNet models, to analyze fatigue specimens made of Ti-6Al-4V alloy, using images taken by a Scanning Electron Microscope (SEM). Initially, we adjusted the SEM images, reducing their size from 4576x4096 pixels to 4096x4096 pixels. This step was crucial to remove unnecessary parts of the images, such as metadata, allowing the models to focus on the important features of the specimens' structures and fracture patterns.
 
-To train our models effectively, we meticulously labeled all 63 images in our dataset to identify the areas of interest for both external and internal contours. This labeling process is vital as it teaches the models what to look for in the images, enabling them to recognize and extract these contours accurately. Such precision is essential for analyzing how fractures progress and assessing the integrity of the specimens.
+To segment SEM images for fracture detection, our training algorithm employed two U-Net models in a systematic approach. The algorithm's steps, detailed below, correspond to Figure~\ref{steps}, which illustrates the progression from raw images to refined fracture detection.
 
-An important decision in our approach was to lower the resolution of the images used to train the model for extracting external contours, from 4096x4096 pixels to 128x128 pixels. This step significantly simplified the model's task by reducing the amount of data it had to process, thus speeding up the training process and making it less demanding on computer resources. However, lowering the resolution means losing some image details, which could be important for the analysis. Despite this trade-off, the model's performance in identifying external contours, with an accuracy of 98.76\%, confirmed that reducing the image resolution was a worthwhile compromise. This high accuracy demonstrates that the model could still capture the essential features of the specimens, despite the reduced resolution.
+\begin{itemize}
+  \item \textbf{Image Preparation:}
+  The SEM images were first cropped to focus on the specimen area Figure~\ref{steps} ('A'). These images were then resized from the original resolution to a uniform resolution of 4096x4096 pixels Figure~\ref{steps} ('B'), and subsequently reduced further to 128x128 pixels Figure~\ref{steps} ('C') for computational efficiency during model training.
 
+  \item \textbf{External Contour Identification:}
+  The first U-Net model learned to identify and extract the external contour of the specimens from the downscaled images, differentiating the area of interest from the background Figure~\ref{steps} ('D'). The result was a clear image showcasing only the specimen against a black background Figure~\ref{steps} ('E').
 
+  \item \textbf{Heatmap Generation:}
+  To emphasize the fracture details, a heatmap was created using edge enhancement techniques Figure~\ref{steps} ('F'). The heatmap was then downsampled to the lower resolution of the second U-Net model's input Figure~\ref{steps} ('G').
 
+  \item \textbf{Internal Contour Segmentation:}
+  The second U-Net model used the rescaled heatmap to detect the internal contours indicative of fractures Figure~\ref{steps} ('H'), providing a detailed map of the fracture lines.
 
+  \item \textbf{Fracture Localization:}
+  The segmented fracture map was then upscaled to the original high-resolution format, facilitating a detailed analysis of the fractures in context with the SEM image Figure~\ref{steps} ('I'). This high-resolution fracture map is pivotal for examining the specifics of the material failure.
+\end{itemize}
 
-
-
-
-
-
-
-The image processing procedure begins with the initiation introduce in Fig \ref{steps} denoted by A. As illustrated in A, the initial input is a scanning electron microscope (SEM) image with a resolution of 4576 * 4096 pixels.
-
-
-Proceeding to Step B, the methodology involves a strategic cropping of the original image to attain a square format, achieving a uniform resolution of 4096 by 4096 pixels. This modification is not merely procedural but serves a critical purpose: by excising the lower portion of the image, we eliminate areas devoid of relevant information, thereby augmenting the contextual significance of the remaining image segment. This step is instrumental in focusing the analytical lens on areas of interest, enhancing the efficiency and relevance of the subsequent processing stages.
-
-
-In the transition to Step C, the image undergoes a significant resolution reduction to 128 by 128 pixels. This reduction is a deliberate preparatory step for the data's integration into the training regimen of the UNet Neural Network. It embodies a critical balance—reducing complexity to prevent overfitting, while retaining sufficient detail for the network to extract meaningful patterns. This step underscores the importance of optimizing data for neural network training, where the objective is to maintain an equilibrium between manageability and the preservation of essential features.
+The application of U-Net models to fracture detection in SEM images exemplifies the synergy of machine learning and material science. This methodological framework enhances the accuracy and efficiency of fracture analysis, paving the way for advanced research in materials engineering.
 
 
-Step D reveals the results from the UNet Neural Network, which was trained using images marked with specific features. This step is crucial because it teaches the network to recognize and apply these features to new, unseen images. The UNet's design allows it to learn from a wide range of data, making it very effective at identifying details in materials. This process is key for accurately analyzing and understanding material characteristics.
 
 
-Advancing to Step E, the methodology involves the delineation of the external contour of the subject material within the image. This step is foundational for establishing a reference framework for subsequent analyses, particularly in identifying areas of interest and potential anomalies on the material's surface.
+\subsubsection{Training and Validation}
+Our models underwent a rigorous training regimen, involving the following steps:
+
+\begin{itemize}
+  \item \textbf{Augmentation and Regularization:} To prepare our dataset, we augmented the images to introduce variations that the models might encounter in real-world scenarios. Techniques such as rotation, flipping, and scaling were employed. To avoid overfitting, we also incorporated regularization strategies, which ensure that our models maintain generalizability.
+
+  \item \textbf{Loss Function Optimization:} The models were optimized using a loss function suitable for segmentation tasks, which evaluated the accuracy of the model's predictions against the known annotations. This optimization used the Adam algorithm, due to its efficiency with large datasets and its automatic tuning of the learning rate.
+
+  \item \textbf{Monitoring Model Performance:} The models segmentation performance was closely monitored using a validation dataset, which was not part of the training data. The Intersection over Union (IoU) and Dice coefficient metrics provided quantitative measures of the models' accuracy, informing any necessary adjustments during the training phase.
+
+  \item \textbf{Hyperparameter Tuning:} We tuned the hyperparameters, including learning rate and batch size, to ensure the models were learning effectively without overfitting. This fine-tuning was guided by the models' performance on the validation set.
+
+\end{itemize}
+
+\subsubsection{Resolution Enhancement and Final Analysis}
+After the training phase, the second U-Net model's outputs were upscaled to the original image resolution Figure~\ref{steps} ('I'), where we could examine the fracture patterns in detail. The final step involved overlaying an ellipse over the high-resolution heatmap to demarcate the region of material failure, offering a clear and detailed representation of the fractures within the material.
+
+The comprehensive training algorithm presented here, documented step-by-step from Figure~\ref{steps} A to I, illustrates the transformative power of U-Net models in material science. By systematically training the models to identify and segment fractures within SEM images, we've demonstrated the potential of deep learning for advanced materials analysis, contributing a novel approach to the understanding of fracture mechanics.
 
 
-Step F unveils the heatmap generated from a dual-process approach, incorporating the Sobel operator for edge detection and a sliding window technique for localized analysis. This heatmap serves as a visual representation of the material's surface topology, emphasizing gradients and edges that are critical for identifying areas of potential material failure.
 
 
-In Step G, the heatmap is further refined to a resolution of 128 by 128 pixels, mirroring the earlier reduction step. This resolution adjustment is strategic, aimed at optimizing the heatmap for the training of the UNet Neural Network. By aligning the heatmap's resolution with that of the training data, we facilitate a more efficient learning process, enabling the network to focus on detecting finer contours that signify material breakage.
-
-
-Step H presents the UNet's output on these finer contours, maintaining the adjusted resolution of 128 by 128 pixels. This output is crucial for identifying smaller, potentially problematic areas within the material's structure, marking a significant step towards pinpointing specific locations of material breakage.
-
-
-Progressing to Step I, the internal contour identified by the UNet is rendered at an enhanced resolution of 4096 by 4096 pixels. This escalation in resolution is instrumental in revealing the intricate details of the internal contour, offering unprecedented insights into the nuanced features detected by the UNet. Such detailed analysis is essential for a comprehensive understanding of the material's integrity and the identification of subtle anomalies that could indicate underlying issues.
-
-
-Finally, in Step J, a heatmap showcasing ellipses highlights the specific areas of material breakage within the titanium. These ellipses are strategically centered on the contours, directing the analytical focus to the critical regions of interest within the SEM image. This visualization not only facilitates a targeted investigation of material failure but also underscores the precision and effectiveness of the image processing and analysis methodology outlined herein.
 \clearpage
 
 \subsection{\textcolor{red}{Hypothesis validation}}
@@ -568,39 +607,15 @@ An early stopping method based on the validation loss was employed to determine 
 Specifically, training was stopped if there was no decrease in validation loss for a predetermined number of epochs.
 The number of epochs set for early stopping was 60 for internal contour detection and 20 for external contour detection, and the total number of epochs was capped at 200.
 
-The U-Net model uses pretrained ImageNet weights for its downsampling path, while its upsampling path is trained from scratch. This strategy leverages the rich feature representations learned from the large and diverse ImageNet dataset, facilitating better initial performance and faster convergence on the specific dataset in use.
-
 The U-Net was trained on 50 images and evaluated on two separate sets: a validation set of 6 images for tuning the learning process, and a test set of 7 images to evaluate its generalization to new data. The training used the Adam optimizer and the Sparse Categorical Cross-Entropy (SCCE) loss function, suitable for pixel-wise classification tasks in image segmentation due to its computational efficiency and effectiveness in multi-class scenarios where classes are mutually exclusive. Unlike Categorical Cross-Entropy, SCCE is designed for cases where target values are integers, simplifying the model's output layer.
 
 Training was structured into epochs, with the number of steps per epoch determined by dividing the total training images by a batch size of 4, resulting in 12 steps per epoch. Validation followed a similar setup, with one step per epoch based on the validation set size and the same batch size. Metrics for accuracy and loss were calculated after each epoch for both training and validation data, as shown in Figure \ref{fig:model_performance_graphs}.
 
-The model demonstrates the convergence of the loss function and minimal variance at the point marked by the green line.
-This point represents the minimal validation loss, as presented in Figures \ref{fig:model_performance_graphs}c and \ref{fig:model_performance_graphs}d.
-
-The accuracy metric exhibits better performance of the model in detecting internal contours on the validation dataset compared to the training dataset, as illustrated in Figure \ref{fig:model_performance_graphs}a.
-One proposed hypothesis for this is the use of augmentation on the training dataset, which is not applied to the validation dataset.
-The use of an augmented training dataset possibly makes it harder for the model to detect the internal contours in the training dataset.
-
-% print the model performance graphs
-\begin{figure}[ht!]
-    \centering
-    % Adjust the width and height parameters as needed to fit the image without cropping
-    \begin{adjustbox}{max width=\linewidth, max height=\textheight}
-        \includegraphics{figures/model_performance_graphs.png}
-    \end{adjustbox}
-    \caption{Performance graphs for the U-Net model. The graphs show the model's accuracy and loss metrics for both training and validation datasets across epochs. (a) Accuracy of the internal contour detection model. (b) Accuracy of the external contour detection model. (c) Loss of the internal contour detection model. (d) Loss of the external contour detection model.}
-    \label{fig:model_performance_graphs}
-\end{figure}
+The U-Net model uses pretrained ImageNet weights for its downsampling path, while its upsampling path is trained from scratch. This strategy leverages the rich feature representations learned from the large and diverse ImageNet dataset, facilitating better initial performance and faster convergence on the specific dataset in use.
 
 Evaluation metrics, including mean accuracy and the Intersection over Union (IoU), were used to evaluate the model's performance on the test dataset, with the results are presented in Table \ref{tab:unet_performance}.
-The accuracy metric for the U-Net model on external contour detection is 99.0\%, while the IoU is 97.8\%, and the model converged at 18 epochs.
-For internal contour detection, the accuracy is 95.0\%, and the IoU is significantly lower at 87.6\%,  and the model converged at 157 epochs.
-The lower IoU for internal contour detection can be attributed to the complexity of the internal contours, which are more intricate and challenging to detect compared to the external contours,
-The lower IoU score compared to accuracy can be explained by IoU's high sensitivity to precise contour localization and lower sensitivity to class imbalance.
-Unlike accuracy, which may not fully capture the complexity of contour outlines or the aspect of class distribution.
 
-
-\begin{table}[ht!]
+\begin{table}[ht]
 \centering
 \begin{tabular}{lccc}
 \hline
@@ -612,6 +627,18 @@ U-Net (Internal Contours) & 157 & 95.0 & 87.6 \\ \hline
 \label{tab:unet_performance}
 \end{table}
 
+
+
+% print the model performance graphs
+\begin{figure}[t!]
+    \centering
+    % Adjust the width and height parameters as needed to fit the image without cropping
+    \begin{adjustbox}{max width=\linewidth, max height=\textheight}
+        \includegraphics{figures/model_performance_graphs.png}
+    \end{adjustbox}
+    \caption{Performance graphs for the U-Net model. The graphs show the model's accuracy and loss metrics for both training and validation datasets across epochs. (a) Accuracy of the internal contour detection model. (b) Accuracy of the external contour detection model. (c) Loss of the internal contour detection model. (d) Loss of the external contour detection model.}
+    \label{fig:model_performance_graphs}
+\end{figure}
 
 
 \section{Validation cases}
@@ -628,7 +655,7 @@ The heatmap evaluation was conducted manually by experts in mechanical engineeri
 By analyzing lower scale Scanning Electron Microscope (SEM) images, a sample from each distinct color area was selected for manual analysis from a set of specimens. Through this examination, the expert could identify the crack phase associated with each colored region of the heatmap.
 The heatmap was segmented into five distinct areas, each representing a different phase of crack development: "dark red" for crack initiation, "red" and "light blue" for crack propagation, "blue" for final failure, and "broken" for areas unaffected by the crack, indicating the static phase of crack growth. From each of these areas, an image was selected, and its corresponding crack phase was manually identified by the expert. The outcomes of this manual analysis are depicted in Figure \ref{fig:heatmap_manual_analysis}.
 
-\begin{figure}[t!]
+\begin{figure}[ht!]
 \centering
 \includegraphics[width=1\textwidth]{figures/heatmap_manual_analysis.png}
 \caption{Manual analysis of crack growth phases using a heatmap. The image shows a segmented heatmap with color-coded regions representing different stages of crack growth on the fracture surface. "Dark red" (a) denotes crack initiation, "red" (b) and "light blue" (c) denote crack propagation, "blue" (d) denotes final failure, and "broken" (e) denotes to the static crack growth area. The analysis is supported by Scanning Electron Microscope (SEM) images linked to each color-coded region, each with a field of view of 277 micrometers, to visually represent the corresponding crack phase.}
@@ -662,11 +689,18 @@ Those are compared to the results of the U-Net models, presented in Figs.~\ref{f
 \subsection{Stress intensity factor and flow stress}
 \label{Subsec: Stress intensity factor and flow stress}
 \textcolor{green}{Presenting manually calculated SIF and SF results for 2 SLM and 2 EBM specimens.\\Presenting Values obtained using the automated model and comparing results }
+
+The proposed computer vision which was applied to identify the elliptical crack based on regions extracted from the U-Net model, that was achieved as described in section \ref{Sec: Proposed Artificial intelligence-driven framework}.
+The automated calculation of the stress intensity factor (SIF) and the flow stress was conducted for two specimens produced using Selective Laser Melting (SLM) and two specimens produced using Electron Beam Melting (EBM),
+with the results compared to the manually calculated values.
+
+
+
 Next, an example of a calculation of $\sigma_{net}$ is presented.
 The calculation is conducted for specimen P1MF19.
 The crack is marked with a yellow polygon, as shown in Fig.~\ref{fig:P1MF19}.
 %
-\begin{figure*}[ht!]
+\begin{figure*}[t!]
   \begin{center}
   \includegraphics[width=3in]{P1MF19.eps}
   \caption{The crack in model P1MF19 marked with a yellow polygon.}
