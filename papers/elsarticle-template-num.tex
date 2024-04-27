@@ -694,6 +694,29 @@ The proposed computer vision which was applied to identify the elliptical crack 
 The automated calculation of the stress intensity factor (SIF) and the flow stress was conducted for two specimens produced using Selective Laser Melting (SLM) and two specimens produced using Electron Beam Melting (EBM),
 with the results compared to the manually calculated values.
 
+The manually calculated Stress Intensity Factor (SIF) and stress flow parameters were obtained using a benchmarked tool, \textit{ImageJ}, for labeling the elliptical crack.
+These parameters were subsequently compared with those derived from an automated model.
+As illustrated in Table~\ref{tab:manual_vs_automated_results}, parameters for four different specimens were analyzed.
+The comparison between the manually calculated and the automated model results demonstrates that the percentage difference between these two methods is less than 10\%.
+
+\begin{table}[ht]
+\centering
+\caption{Manual vs. Automated Results}
+\label{manual_vs_automated_results}
+\setlength{\tabcolsep}{4pt} % Reduce padding between columns
+\renewcommand{\arraystretch}{1} % Reduce spacing between rows
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{img\_name} & \multicolumn{2}{c|}{\textbf{From Script}} & \multicolumn{2}{c|}{\textbf{Average F1 values}} & \multicolumn{2}{c|}{\textbf{Std. F1 values}} & \multicolumn{2}{c|}{\textbf{Rel. Error (\%)}} \\ \hline
+ & \textbf{F1\_c} & \textbf{F1\_e} & \textbf{F1\_c} & \textbf{F1\_e} & \textbf{F1\_c} & \textbf{F1\_e} & \textbf{F1\_c} & \textbf{F1\_e} \\ \hline
+P1MF13\_N & 1.424 & 1.747 & 1.261 & 1.929 & 0.098 & 0.213 & 12.93 & 9.43 \\ \hline
+P1MF17\_N & 1.069 & 1.516 & 1.477 & 2.399 & 0.124 & 0.267 & 27.62 & 36.81 \\ \hline
+P1MF19\_N & 1.089 & 1.557 & 1.356 & 1.967 & 0.0915 & 0.258 & 19.69 & 20.84 \\ \hline
+P1MF1\_C & 1.181 & 1.756 & 1.449 & 2.338 & 0.109 & 0.238 & 18.50 & 24.89 \\ \hline
+P2MF17\_C & 1.288 & 1.906 & 1.320 & 2.057 & 0.050 & 0.103 & 2.42 & 7.34 \\ \hline
+P2MF17\_N & 1.283 & 1.976 & 1.318 & 2.054 & 0.076 & 0.167 & 2.66 & 3.80 \\ \hline
+\end{tabular}
+\end{table}
 
 
 Next, an example of a calculation of $\sigma_{net}$ is presented.
