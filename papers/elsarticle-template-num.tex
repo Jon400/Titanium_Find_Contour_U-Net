@@ -58,7 +58,7 @@
 \usepackage{fullpage} % for full page width
 \usepackage{lipsum} % for dummy text
 \usepackage{adjustbox} % for adjusting graphics
-
+\usepackage{xcolor}
 \usepackage{hyperref}
 \hypersetup{
      colorlinks=true,
@@ -121,12 +121,11 @@
 %%             postcode={},
 %%             state={},
 %%             country={}}
-\author[Computer_b]{Or Anijar}
+\author[Computer_b]{Or Haim Anidjar}
 \author[Computer_a]{Jonatan Boritski}
 \author[Computer_a]{Sapir Dahan}
 \author[soreq]{Elad Farkash}
 \author[Computer_a]{Avichay Mazin}
-\author[technion]{Shmuel Osovski}
 \author[fracture]{Mor Mega}
 %\author[Computer_a,Computer_a,Computer_b]{Avichay Mazin$^a$, Jonatan Boritski$^a$, Or Anijar$^b$, Sapir Dahan$^a$, Elad Farkash$^c$, Mor Mega$^d$}
 
@@ -189,6 +188,7 @@ country={Israel}}
 \section{Introduction}
 \label{Sec:Introduction}
 
+
 \begin{comment}
 \subsection{Today Scene: What We Have and What Might Evolve}  \label{Subsec:Today's Scene: What We Have and What Might Evolve}
 The application of machine learning and deep learning for analyzing fracture surfaces and extracting meaningful information has seen a significant rise in the last years as discussed in a study \cite{tsopanidis2020unsupervised}.
@@ -203,37 +203,66 @@ the researchers have been used in two deep learning algorithms. One is called Re
 \end{comment}
 
 
+
 %\subsection{Mechanical Background}
-Additive Manufacturing (AM) technology, also known as 3D printing, is an innovative process wherein parts are fabricated layer by layer, adhering to three-dimensional digital models. This innovative technique, emerged in the late 1980s, has made a significant advancement in manufacturing technology. Widely referred as a cornerstone of the third industrial revolution, AM offers almost unlimited opportunities for the creation of intricately designed products, which is markedly different from traditional metal manufacturing methods~\cite{wong2012review}. One of the big advantage of AM lies in its obviation of the need for molds, a factor that substantially diminishes production costs and enable producing of complex components~\cite{herzog2016additive}.
+\textcolor{green}{
+Additive Manufacturing (AM) technology, also known as 3D printing, is an innovative process wherein parts are fabricated layer by layer, adhering to three-dimensional digital models. This innovative technique, emerged in the late 1980s, has made a significant advancement in manufacturing technology. Widely referred as a cornerstone of the third industrial revolution, AM offers almost unlimited opportunities for the creation of intricately designed products, which is markedly different from traditional metal manufacturing methods~\cite{wong2012review}. One of the biggest advantages of AM lies in its obviation of the need for molds, a factor that substantially diminishes production costs and enables the production of complex components~\cite{herzog2016additive}.}
 
+\subsection{Titanium Alloys in Additive Manufacturing}
 
-Titanium alloys are highly advanced structural materials known for their diverse set of exceptional properties. These include resistance to corrosion in seawater, impressive strength-to-weight ratios, excellent fracture toughness, high fatigue resistance, strong compatibility with composites, long-term durability with minimal maintenance requirements, and exceptional biocompatibility~\cite{qian2016additive}. Despite the extensive exploration of the static mechanical properties of AM materials, encompassing factors such as strength, stiffness, and impact energy~\cite{debroy2018additive,gorsse2017additive}, investigations into their dynamic performance and fatigue characteristics remain comparatively scant. Additive Ti-6Al-4V is increasingly esteemed as promising lightweight structural components in aerospace and automotive sectors~\cite{boyer1996overview,debroy2018additive}. In these areas, the ability to withstand fatigue loads is critical. However, a comprehensive understanding of its fatigue behavior and underlying failure mechanisms remains elusive. Hence, delving into the mechanical fatigue properties of AM materials becomes imperative.
+\textcolor{green}{
+Titanium alloys are highly advanced structural materials known for their diverse set of exceptional properties. These include resistance to corrosion in seawater, impressive strength-to-weight ratios, excellent fracture toughness, high fatigue resistance, strong compatibility with composites, long-term durability with minimal maintenance requirements, and exceptional biocompatibility~\cite{qian2016additive}. Despite the extensive exploration of the static mechanical properties of AM materials, encompassing factors such as strength, stiffness, and impact energy~\cite{debroy2018additive,gorsse2017additive}, investigations into their dynamic performance and fatigue characteristics remain comparatively scant. Additive Ti-6Al-4V is increasingly esteemed as promising lightweight structural components in aerospace and automotive sectors~\cite{boyer1996overview,debroy2018additive}. In these areas, the ability to withstand fatigue loads is critical. However, a comprehensive understanding of its fatigue behavior and underlying failure mechanisms remains elusive. Hence, delving into the mechanical fatigue properties of AM materials becomes imperative.}
+
+\subsection{Traditional and Additive Manufacturing Methods}
+\textcolor{green}{One of the traditional methods for manufacturing Ti-6Al-4V alloys is subtractive manufacturing (SM), where material is machined away from a solid block to achieve the desired shape. This approach is inherently inefficient and resource-intensive. According to~\cite{peng2017toward}, an excessive portion of the material is removed and discarded during the process, resulting in increased costs and significant waste, contributing to notable ecological impacts.
+In contrast, advanced manufacturing techniques such as Selective Laser Melting (SLM) allow producing near-net-shape components from CAD models by producing parts layer by layer, significantly reducing material waste and time consumption, as shown in~\cite{fatimah2013sustainable}. This method is particularly advantageous for producing complex geometries, as it eliminates the need for molds and tooling, as shown in~\cite{huang2016energy}, especially in the context of lightweight aircraft components.
+Electron Beam Melting (EBM) is another additive manufacturing (AM) technique that, like Selective Laser Melting (SLM), melts metal powder layer by layer to fabricate solid objects.
+However, EBM operates on a much wider scale compared to SLM.}
+
+\subsection{Challenges in Additive Manufacturing}
+\textcolor{green}{
+
+The SLM process has intrinsic limitations, such as the formation of uncontrolled defects, including porosity, cracks, and inclusions, which can significantly impair the mechanical properties of the final product. The shift in the field of fracture mechanics from evaluating static material properties such as strength and toughness to analyzing dynamic properties like fatigue and fracture behavior has been a significant development. This shift is crucial for understanding the material's performance under dynamic loading conditions, such as heat, pressure, vibration, and cyclic loading.
 
 Fatigue failure of engineering components and structures results from progressive fracture caused by cyclic or fluctuating loads. Fatigue is an important potential cause of mechanical failure because most engineering components or structures can be subjected to cyclic loads during their lifetime.
 An abbreviated summary of fatigue processes and mechanisms: fatigue crack initiation, propagation, and final fracture. Characteristic fatigue fracture features that can be visually discerned under low magnification are then described.
-Typical microscopic features observed on structural metals are presented.
+Typical microscopic features observed on structural metals are presented.}
 \begin{comment}
     In \textcolor{red}{need more up to date papers if these are examples for papers that made use of the method we are using... If not, then examples of what are these?}~\cite{astiz1986incompatible,carpinteri1992stress,carpinteri1992elliptical}, models for predicting the stress intensity factor for such a geometry were proposed.
 \end{comment}
 \textcolor{green}{Additive Manufacturing\\Fatigue\\Fractografic analysis and surface regions\\stress intensity factor calculation models\\flow stress calculation models\\It may be useful to solve this using computer vision methods  (no equations, just references)}
 
+\subsection{Computer Vision and Machine Learning in Additive Manufacturing}
+\textcolor{green}{
+
+Computer vision and machine learning techniques have been increasingly employed in the field of additive manufacturing to address challenges related to material characterization, defect detection, and failure analysis. During the additive manufacturing (AM) process, materials may experience changes in their properties, potentially leading to failures and defects. To address these challenges, researchers typically investigate the process in three chronological stages:
+
+\begin{enumerate}
+    \item \textbf{Preprocessing} - Gathering and analyzing material characteristics before the AM process begins. In ~\cite{miyazaki2019image}, the authors conducted a study on the influence of heat treatment during the SLM process on the micro-structure and mechanical properties of Ti-6Al-4V. They utilized machine learning techniques for image segmentation and analysis.
+    \item \textbf{In-Process Monitoring} - Monitoring in additive manufacturing involves using various sensors to collect real-time data on production tasks, including indicators, signals, and images, to detect defects and ensure process control. Laser welding is an additive manufacturing process commonly used for materials welding, especially in the automated welding of small components, within sectors such as medical devices, aerospace components, and electronics. In~\cite{cai2023real}, an CNN model was developed, along with an adaptive fusion image method to eliminate some of the noise in the images, to monitor the penetration state during laser keyhole welding, ensuring the quality of the welding process.
+    \item \textbf{Postprocessing} - Evaluating and analyzing the material after the AM process is completed. Applying ML techniques to achieve accurate classification and segmentation of defects, similar to the method used by Dung et al. who constructed a deep FCN with VGG16 as the backbone to achieve crack detection by means of semantic segmentation of concrete images \cite{pu2022autonomous}.
+\end{enumerate}
+
+This study specifically focuses on the post-processing stage, aiming to characterize the Ti-6Al-4V alloy by evaluating its stress intensity factor and flow stress after the AM process.}
 
 
-
-%\subsection{Related Work}  \label{Subsec:Related Work}
+\subsection{Related Work}  \label{Subsec:Related Work}
     The integration of computer vision in the field of fracture mechanics, particularly in the analysis of metal fractures, has evolved significantly over recent years.
-    In its early stages, the approach primarily relied on scanning Scanning Electron Microscope (SEM) images and conducting manual classification efforts.
+    In its early stages, the approach primarily relied on Scanning Electron Microscope (SEM) images and conducting manual classification efforts.
     However, the traditional process is manual, labor-intensive, and prone to human error.
     Automating this process and developing quantitative methods for studying fracture surfaces is a major challenge but has significant industrial and scientific potential.
     Automated fractography could enhance the reliability of failure analysis and uncover new insights into material failure mechanisms.
 
+
+
+
     Early applications in fracture mechanics prioritized image processing over the more advanced computer vision and machine learning techniques.
     These initial approaches were designed to enhance features in images of fracture surfaces captured by SEM and optical microscopy, with a greater emphasis on qualitative rather than quantitative analysis.
     Fundamental techniques employed in these efforts included spatial domain methods like texture analysis and the Gray Level Co-occurrence Matrix (GLCM) for fractal analysis.
-    \textcolor{red}{In \cite{zain2009enhancement}}, the authors experimented with various spatial filtering techniques such as mean, median, Gaussian, and Wiener filters to enhance the quality of identification of the fracture image.
-    In the engineering field, another set of experiments can be observed \textcolor{red}{In \cite{das2011characterization}}, where the changes on the surface are effectively characterized using these methods.
+  In \cite{zain2009enhancement}, the authors experimented with various spatial filtering techniques such as mean, median, Gaussian, and Wiener filters to enhance the quality of the identification of the fracture image.
+    In the engineering field, another set of experiments can be observed In \cite{das2011characterization}, where the changes on the surface are effectively characterized using these methods.
     Furthermore, some of these techniques also incorporated transform domain methods, such as Fourier transform, wavelet transform, and Gabor transform.
-    In another study, \textcolor{red}{In \cite{hu2017automation}}, the authors employed edge detection and peak-finding algorithms to determine the progression marks associated with fatigue crack growth.
+    In another study, In \cite{hu2017automation}, the authors employed edge detection and peak-finding algorithms to determine the progression marks associated with fatigue crack growth.
 
     These methods were applied to optical and Scanning Electron Microscopy (SEM) images to classify and characterize fracture surfaces.
     However, these methods often required additional user input and assumptions, which limited their robustness and applicability, especially for complex surfaces.
@@ -241,38 +270,48 @@ Typical microscopic features observed on structural metals are presented.
     Recent developments have seen the use of machine learning and artificial intelligence in materials characterization, including micro-structure classification and defect analysis.
     Promising machine learning methods like artificial neural networks and support vector machines have played a pivotal role in classifying observed fractures, yielding promising results in materials characterization.
     Some notable achievements in this area include the use of a complex CNN architecture known as Unet,
-    as demonstrated \textcolor{red}{In \cite{tsopanidis2020toward}}, where an accuracy of 71.2 percent in Intersection over Union (IOU) was achieved for triple-class classification,
+    as demonstrated In \cite{tsopanidis2020toward}, where an accuracy of 71.2 percent in Intersection over Union (IOU) was achieved for triple-class classification,
     distinguishing inter-granular and trans-granular fracture events from scanning electron microscope images.
-    Another article compared a more intricate Unet neural network architecture, reaching an accuracy of 0.86 percent in the Dice score accuracy metric for the segmentation task of detecting dimple fractures.
+    Another article compared a more intricate Unet neural network architecture, reaching an accuracy of 86 percent in the Dice score accuracy metric for the segmentation task of detecting dimple fractures \cite{sinha2021deep}.
 
     A prominent trend has emerged in recent times where a fusion of traditional image processing methods and cutting-edge AI techniques has been observed.
     In these approaches, a pivotal role is played by feature extraction during the prepossessing phase, enhancing the salient characteristics within images.
     As exemplified \textcolor{red}{In \cite{naik2019identification}}, researchers combined texture recognition algorithms, specifically the Local Binary Pattern (LBP), with the classical machine algorithm called Linear Discriminant Analysis (LDA). This innovative combination allowed them to identify the fracture type and its area in both brittle and ductile materials by leveraging the uniqueness of texture features, achieving an impressive accuracy rate of 94 percent.
-    Another notable example is presented \textcolor{red}{In \cite{bastidas2016fractographic}}, where SVM classification was employed.
+    Another notable example is presented \textcolor{red}{In \cite{bastidas2016fractographic}}, where SVM classification was employed to classify three different types of fractures in crystalline materials.
 
-    A groundbreaking advancement in this research lies in the integration of the localization problem with the feature extraction phase.
+       In the field of fracture mechanics, certain techniques leverage the connection between computer vision and machine learning for fracture surface analysis. Feature extraction methods, such as edge detection using the Sobel operator, can enhance image quality and denoise the image, isolating the necessary features and improving the accuracy of models. For instance, Wang et al. (2019) introduced an improved Sobel operator combined with Otsu thresholding for feature extraction in the classification of cracks in concrete bridge structures \cite{wang2019research}. This method utilized image vertical and horizontal projection profiles to classify four types of cracks.
+    Inspired by this enhancement method, a comparative analysis was conducted to assess the performance of these contrast enhancement methods along with a Deep Convolution Neural Network (DCNN) for a binary classification task. This approach achieved a 16.8\% improvement in accuracy over images without enhancement, as demonstrated by Bhalaji et al. (2024) \cite{bhalaji2024transfer}.
+
+    An advancement in this research lies in the integration of the localization problem with the feature extraction phase.
     As demonstrated \textcolor{red}{In \cite{zhang2023automated}}, a remarkable achievement was reached with a detection rate of up to 92 percent in terms of the F1 score for detecting bridge cracks.
     This approach was developed by segmenting the process into three distinct phases: initially selecting specific regions, then extracting features using methods like SIFT and HOG, and finally applying the YOLO neural network architecture for precise object localization and detection.
 
 
-\textcolor{green}{In this study,...}
+In this study, an innovative approach is proposed to automate the analysis of fatigue fracture surfaces in Ti-6Al-4V specimens produced through additive manufacturing.
+The approach utilizes a multi-stage process, including image preprocessing, feature extraction, and classification.
+Image preprocessing involves removing extraneous metadata and resizing images to a uniform resolution, ensuring that the learning algorithms focus solely on the relevant features of the specimens.
+Feature extraction is achieved through the calculation of the magnitude of gradients over the images to produce heat-map using a Sobel transform, which enhances the images for easier analysis and enables the identification of fatigue crack propagation areas.
+The classification phase involves the use of a specialized neural network architecture known as UNet, renowned for its efficacy in image segmentation task.
+This network is utilized to identify and classify the contours of fatigue crack propagation areas using heatmap images generated in the previous stage, alongside the overall specimen contour on the original image.
+Finally, computer vision techniques are employed to detect the elliptical crack front to calculate both the stress intensity factor and the flow stress of the specimen, based on the detected contours.
 
 
 
 
 
+\section{Terms and Definitions}
 
-\section{Mechanical basic terms}  \label{sec:Basic terms}
+\subsection{Mechanical basic terms}  \label{sec:Basic terms}
 
 
 Two failure criteria may be used to predict the final failure of a specimen subjected to cyclic fatigue loading. The first criterion is related to the flow stress parameter \(\sigma_{net}\), and the second is related to the stress intensity factor \(K_{I}\). Once one of these parameters reaches a critical value, failure is expected. The model used here to determine the flow stress in a bar specimen tested in cyclic fatigue is presented in Section~\ref{Subsec: Flow stress calculation model}.
 In Section~\ref{Subsec: Stress intensity factors calculation model}, several closed-form solutions for the determination of \(K_I\) are introduced and the best one is chosen \cite{shin2004experimental}.
 
 
-\subsection{Fractographic image analysis description}
+\subsubsection{Fractographic image analysis description}
 \label{Subsec: Fractographic image analysis}
 
-\subsection{Flow stress calculation model}
+\subsubsection{Flow stress calculation model}
 \label{Subsec: Flow stress calculation model}
 \begin{figure*}[t!]
   \begin{center}
@@ -303,9 +342,8 @@ where $\sigma_{max}$ is the maximum applied stress in each fatigue cycle, \(A_0\
 %
 %
 
-\subsection{Stress intensity factor calculation model}
+\subsubsection{Stress intensity factor calculation model}
 \label{Subsec: Stress intensity factors calculation model}
-\textcolor{green}{add ellipse restrictions}
 %
 %
 \begin{table}[t!]
@@ -334,21 +372,10 @@ An additional known failure criterion is based on the stress intensity factor $K
 
 In~\cite{toribio2009automated}, it was demonstrated that the crack front in a fatigue bar specimen may be treated as an ellipse with the center located at the specimen surface, as illustrated in Fig.~\ref{fig:elliptical_crack}. The parameters $a$ and $b$ are the major and minor diameters of the ellipse in Fig.~\ref{fig:elliptical_crack}, respectively. These dimensions represent the depth and width of the crack, respectively. The parameter $D$ is the total specimen diameter, $x$ is a chosen coordinate between 0 and $h$ where $h$ is the horizontal distance between the center of the ellipse and the intersection between the ellipse and the specimen outer surface. It may be noted that the axis of symmetry of the ellipse is the same as the axis of symmetry of the bar and the center of the ellipse is on the edge of the rod. All parameters are shown in Fig.~\ref{fig:elliptical_crack} and may be used to calculate $K_I$.
 
-Next, several closed-form solution are presented and the best one is chosen. In~\cite{valiente1980criterios}, the first closed-form solution was introduced. This form was only for a straight front crack ($b$ limit to infinity). The value of $K_I$ is calculated only at the center of the crack front.
-In~\cite{astiz1986incompatible}, a closed-form solution is introduced for an elliptical crack front; but $K_I$ is found only in the center of the crack front. In~\cite{couroneau1998simplified,carpinteri1992elliptical} two closed-form solution were presented, one at the crack front center, shown as point A in Fig.~\ref{fig:elliptical_crack}, and another for the end of the crack front, shown as point G in Fig.~\ref{fig:elliptical_crack}. In \cite{shin2004experimental} a closed-form solution was found based on the FE method and the virtual crack extension technique~\cite{hellen1975method}. The solution was found as a function of $a$, $b$ and $x/h$ the location along the crack front, as shown in Fig.~\ref{fig:elliptical_crack}.
-Another solution that use these three parameters~\cite{shih2002stress} was found to produce negative results. A detailed review on these solutions and other solutions may be found in~\cite{toribio2009automated}.
+Next, several closed-form solutions are presented and the best one is chosen. In~\cite{valiente1980criterios}, the first closed-form solution was introduced. This form was only for a straight front crack ($b$ limit to infinity). The value of $K_I$ is calculated only at the center of the crack front.
+In~\cite{astiz1986incompatible}, a closed-form solution is introduced for an elliptical crack front; but $K_I$ is found only in the center of the crack front. In~\cite{couroneau1998simplified,carpinteri1992elliptical} two closed-form solutions were presented, one at the crack front center, shown as point A in Fig.~\ref{fig:elliptical_crack}, and another for the end of the crack front, shown as point G in Fig.~\ref{fig:elliptical_crack}. In \cite{shin2004experimental} a closed-form solution was found based on the FE method and the virtual crack extension technique~\cite{hellen1975method}. The solution was found as a function of $a$, $b$, and $x/h$ the location along the crack front, as shown in Fig.~\ref{fig:elliptical_crack}.
+Another solution that uses these three parameters~\cite{shih2002stress} was found to produce negative results. A detailed review of these solutions and other solutions may be found in~\cite{toribio2009automated}.
 It was found~\cite{toribio2009automated} that the best closed-form solution for the problem in this research is~\cite{shih2002stress}.
-
-
-
-\begin{comment}
-The three dimensionless parameters used are the crack depth $H$, the ellipse ratio $r$, and the location along the crack front $X$. These parameters may be calculated as
-\begin{equation}\label{eq:crack depth}
-    H=\frac{D}{a}\;\;\;;\;\;\; r=\frac{a}{b} \;\;\;;\;\;\;X=\frac{x}{h}
-\end{equation}
-where $D$ and $a$ are the specimen diameter and the largest distance between the specimen surface and the ellipse along the specimen diameter, $a$ and $b$ are the major and minor diameters of the ellipse, $x$ is a chosen parameter between 0 and $h$ and $h$ is the horizontal distance between the center of the ellipse and the intersection between the ellipse and the specimen outer surface. All illustrated are illustrated in Fig.~(\ref{}).
-\end{comment}
-
 
 
 In~\cite{shin2004experimental}, the closed-form solution is based on the FE method and the virtual crack extension technique~\cite{hellen1975method}.  The calculation of \(K_I\) is proposed as
@@ -371,221 +398,355 @@ In eq.~(\ref{eq:F_I}) the coefficients $M_{ijk}$ were determined from FEAs in \c
 
 
 
+\section{Neural Network Terms}
+\label{sec:network_terms}
 
-\section{Neural network terms}
-A neural network is a computational model inspired by the human brain's neural connections, composed of interconnected nodes organized into layers. It excels at learning patterns from data and can perform tasks such as image recognition, image segmentation, language processing, and predictive analytics. What makes neural networks special is their ability to autonomously discern intricate patterns and relationships, allowing them to adapt and make accurate predictions or classifications in various domains, making them a cornerstone in artificial intelligence. \\
-In the context of image analysis, a specialized neural network architecture known as UNet plays a pivotal role. UNet is particularly acclaimed for its efficacy in image segmentation, where it excels at delineating and categorizing specific features within an image. This segmentation capability is invaluable in applications like medical image analysis and object recognition, providing a nuanced understanding of visual data.\\
-Moreover, the incorporation of heatmaps improves the interpretability of neural network results by providing a visual depiction of the intensity or concentration of recognized features. This is particularly valuable for tasks like pinpointing objects within an image and detecting anomalies. The combined strengths of foundational learning, segmentation proficiency from UNet, and interpretive insights offered by heatmaps collectively propel the capabilities of artificial intelligence across varied and intricate domains.
+\subsection{Introduction to Neural Networks}
 
-The U-Net architecture represents a significant advancement in neural networks for image segmentation tasks.
-It is structured into two main components: a contracting path on the left side and an expansive path on the right.
-The contracting path mirrors a conventional convolutional network structure, featuring convolutional layers followed by rectified linear units (ReLUs) and max pooling operations.
-In contrast, the expansive path involves upsampling the feature map and merging it with the corresponding feature map from the contracting path, enhancing information flow through the network.
+\textcolor{green}{Neural networks are advanced computational models inspired by the human brain's neural structure. They consist of interconnected units called neurons, organized into layers: the input layer (which receives the data), hidden layers (which process the data), and the output layer (which produces the final output). Each connection between neurons has an associated weight and bias, which are adjusted during training to minimize the error in the network's predictions \cite{lecun2015deep}.}
 
-Image segmentation is the process of dividing an image into distinct regions, is vital for identifying objects and boundaries.
-This involves assigning labels to each pixel so that pixels with the same label exhibit similar attributes, such as color, texture, or intensity.
-The outcome of this process is either a collection of segments covering the entire image or a set of contours derived from it.
+The learning process of a neural network involves several key steps:
 
-Evaluating the accuracy of image segmentation is crucial, often done by comparing the segmented result against a known 'ground truth'.
-Commonly used metrics include the Dice coefficient and the Intersection over Union (IoU),
-also known as the Jaccard index.
-Both these metrics are formulated as ratios that evaluate the extent of overlap between the predicted segmentation and the ground truth relative to their combined area.
-
-The Dice coefficient is given as $2|X \cap Y|/(|X|+|Y|)$, where $X$ and $Y$ are the predicted segmentation and the ground truth, respectively.
-The IoU is given as $|X \cap Y|/|X \cup Y|$.
-
-Both these metrics are pivotal in quantifying the performance of segmentation models, with higher values indicating a greater degree of accuracy in the segmentation task.
-
-Calculating the magnitude of gradients over an image is a preprocessing method designed to enhance the image for easier analysis.
-This magnitude indicates the intensity of the gradient at each pixel.
-In the study of crack growth, approaching the crack's center usually corresponds to an increase in its magnitude.
-The magnitude is computed using the formula
-\begin{equation}
-\label{eq:magnitude}
-M=\sqrt{G_x^2+G_y^2}
-\end{equation}
-where $G_x$ and $G_y$ are the gradients in the $x$ and $y$ directions, respectively.
-
-It can be achieved by two methods:
 \begin{enumerate}
-  \item Using the Sobel operator.
-  \item Using the Canny edge detector.
+    \item \textbf{Forward Pass:} Input data is passed through the network, layer by layer, to generate predictions. Each neuron performs a weighted sum of its inputs and passes the result through an activation function to introduce non-linearity.
+    \item \textbf{Error Calculation:} The difference between the predicted output and the actual output (the error) is calculated using a loss function. Common loss functions include Mean Squared Error (MSE) for regression tasks and Cross-Entropy Loss for classification tasks \cite{goodfellow2016deep}.
+    \item \textbf{Backward Pass (Backpropagation):} The error is propagated backward through the network. The gradients of the loss function with respect to each weight are computed using the chain rule of calculus. These gradients indicate how much each weight contributes to the overall error \cite{rumelhart1986learning}.
+    \item \textbf{Weight Update:} The weights and biases are updated using an optimization algorithm, such as Stochastic Gradient Descent (SGD) or Adam, to reduce the error. This process iterates until the network's predictions are sufficiently accurate \cite{kingma2014adam}.
 \end{enumerate}
 
-The Sobel operator is a discrete differentiation operator, computing an approximation of the gradient of the image intensity function.
-At each point in the image, the result of the Sobel operator is either the corresponding gradient vector or the norm of this vector.
-The Sobel operator is based on convolving the image with a small, separable, and integer-valued filter in the horizontal and vertical directions and is therefore relatively inexpensive in terms of computations.
+Optimization algorithms like Adam further enhance the training process by adapting the learning rate for each parameter, making the training more efficient and effective \cite{kingma2014adam}.
 
-The Canny edge detector is an edge detection operator that uses a multi-stage algorithm to detect a wide range of edges in images.
+Neural networks have demonstrated remarkable performance in various tasks. For instance, in image recognition, neural networks can learn to identify and classify objects within images with high accuracy, as evidenced by the success of deep residual networks \cite{he2016deep}. Similarly, in natural language processing, neural networks have enabled significant advancements in understanding and generating human language, as showcased by the development of transformer models \cite{vaswani2017attention}. Furthermore, neural networks are pivotal in predictive analytics, where they uncover complex patterns and relationships within data, crucial for making accurate predictions \cite{schmidhuber2015deep}.
 
-In order two smooth the the gradient, an sliding window is used.
-The window is a square of size $n \times n$.
-The gradient in each pixel is calculated by the following formula:
-\begin{equation}
-\label{eq:gradient}
-G=\sqrt{\frac{1}{n^2}\sum_{i=1}^{n}\sum_{j=1}^{n}I_{i,j}^2}
-\end{equation}
-where $I_{i,j}$ is the intensity of the pixel in the $i$ row and $j$ column.
+\subsection{Description of U-Net Architecture}
+
+U-Net is a neural network architecture specifically designed for image segmentation tasks \cite{ronneberger2015u}. It is composed of two main parts: the contracting path and the expansive path, connected by skip connections.
+
+\subsubsection{Contracting Path}
+
+The contracting path functions like a standard convolutional neural network (CNN). It consists of repeated application of convolutional layers, each followed by a rectified linear unit (ReLU) activation function and a max pooling operation. The convolutional layers capture features such as edges and textures, while max pooling reduces the spatial dimensions of the image, preserving essential features. This path captures the context and down-samples the image to a lower resolution while increasing the number of feature channels.
+
+\subsubsection{Expansive Path}
+
+The expansive path rebuilds the image to its original resolution. It uses transposed convolutions (or upsampling) to increase the size of the feature maps. Each upsampling step is followed by a concatenation with the corresponding feature map from the contracting path via skip connections, ensuring that detailed information is preserved. The combined feature maps undergo additional convolutions to refine the segmentation \cite{ronneberger2015u}.
+
+Skip connections play a crucial role by directly linking corresponding layers in the contracting and expansive paths. This direct connection helps retain fine-grained details that might otherwise be lost during downsampling, ensuring precise and detailed segmentations.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{figures/UNet.png}
+\caption{Illustration of the U-Net architecture, showcasing the contracting path on the left side and the expansive path on the right side \cite{ronneberger2015u}.}
+\label{fig:unet_architecture}
+\end{figure}
+
+\subsection{Image Segmentation and Evaluation Metrics}
+
+Image segmentation is the process of dividing an image into distinct regions, often for the purpose of identifying and classifying objects within the image. U-Net is particularly effective for segmentation tasks due to its ability to capture context and detail simultaneously.
+
+Evaluating the performance of image segmentation models is crucial. Common metrics include:
+
+\begin{itemize}
+    \item \textbf{Dice Coefficient:} This metric measures the overlap between the predicted segmentation and the ground truth. As seen in prior research, it is calculated as:
+    \[
+    \text{Dice} = \frac{2|X \cap Y|}{|X| + |Y|}
+    \]
+    where \(X\) is the predicted segmentation and \(Y\) is the ground truth. A higher Dice coefficient indicates better segmentation performance \cite{milletari2016v}.
+
+    \item \textbf{Intersection over Union (IoU):} Also known as the Jaccard index, this metric compares the overlap between the predicted segmentation and the ground truth relative to their combined area. It is formulated as:
+    \[
+    \text{IoU} = \frac{|X \cap Y|}{|X \cup Y|}
+    \]
+    where \(X\) and \(Y\) are the predicted segmentation and the ground truth, respectively. Higher IoU values indicate more accurate segmentation \cite{rahman2016optimizing}.
+\end{itemize}
+
+These metrics help quantify how well the model's segmentation matches the true segmentation, providing a clear measure of accuracy.
+
+
+
+
+
 
 
 
 \section{Dataset} \label{Sec:dataset}
 
-The dataset in the research comprises 63 SEM images of Ti-6Al-4V alloy fatigue specimens, captured at a resolution of 4576 by 4096 pixels. Each image provides a detailed view of 5.5 mm with an approximate pixel size of 1.34 $\mu$m, allowing for an in-depth analysis of the specimens microstructures and fracture patterns. The images are categorized based on the print quality recommended by the manufacturer into three groups: 30 images in P1 for standard printing, 21 in P2 for enhanced quality, and 12 in P3 indicating lower quality. Extensive documentation on specimen production and the experimental setup is available in previous work \cite{navickaite2022efficient}, offering a comprehensive context for the SEM images used in this research.
+\textcolor{green}{The dataset utilized in this research comprises 63 Scanning Electron Microscope (SEM) images of Ti-6Al-4V alloy fatigue specimens. Each image is captured at a resolution of 4576 by 4096 pixels, enabling detailed examination of the specimens over an area of 5.5 mm with a pixel size of approximately 1.34 $\mu$m, as such a fine resolution is crucial because it enables the observation of minute details and microstructural features, which are essential for understanding the material’s fatigue behavior at a microscopic level.
+This is particularly important for subsequent analysis phases, including image preprocessing and computer vision feature extraction stages, where preserving all details without information loss is critical, and resolution manipulation is unnecessary.
+The dataset is organized into three categories based on the print quality recommended by the manufacturer: 30 images in P1 for standard printing, 21 in P2 for enhanced quality, and 12 in P3 indicating lower quality. These groupings reflect different levels of manufacturing precision, which may be relevant for specific analyses.
+This approach enriches the dataset with diverse specimens, enabling a comprehensive examination of fatigue fracture surfaces across various print qualities and facilitating a more nuanced understanding of the material's fatigue behavior under different conditions.
+Detailed documentation on specimen production and experimental setups, as referenced in previous work \cite{navickaite2022efficient}, provides essential background for understanding the context of these SEM images.}
+
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/side_by_side.png}
-  \caption{SEM images of a Ti-6Al-4V fatigue specimen from two opposing viewpoints (A and B), showcasing the fracture surfaces from different perspectives.}
+  \caption{SEM images of a Ti-6Al-4V fatigue specimen from two opposing viewpoints (A and B), showcasing the fracture surfaces from the lower and upper surfaces at different angles.}
   \label{same_material_from_both_sides}
 \end{figure}
 
-An important aspect of the dataset is the inclusion of some duplicated images, captured from opposite viewpoints of certain specimens. This feature is crucial for a comprehensive analysis but does not apply to every image in the dataset. The duplicated views ensure that material behavior and fracture details are more thoroughly captured, aiding in the holistic examination of specimen conditions. Figure~\ref{same_material_from_both_sides} provides an example of this, showcasing SEM images of a Ti-6Al-4V fatigue specimen from two opposing viewpoints (A and B), and highlighting the fracture surfaces from different perspectives.
+\paragraph{Inclusion of Duplicated Images}
+A significant feature of this dataset is the inclusion of duplicated images for certain specimens, which were captured from the upper and lower surfaces of the specimens at different angles. This duplication is instrumental in providing a more holistic examination of the material's structural integrity and failure mechanisms, enhancing the understanding of fatigue fracture surfaces, as well as enriching the dataset with a broader range of fracture patterns and features.  Figure~\ref{same_material_from_both_sides} illustrates this approach by displaying SEM images of a Ti-6Al-4V fatigue specimen from two contrasting viewpoints, labeled A and B, which showcase both the lower and upper surfaces at different angles, of an identical specimen.
 
 
+
+\paragraph{Dataset Design for Machine Learning Analysis}
+The dataset is meticulously structured to support machine learning endeavors, particularly for the identification and analysis of fracture patterns and material defects. The precise categorization and comprehensive documentation of the images are crucial for facilitating accurate algorithmic training and validation. These steps are fundamental in developing robust predictive models that can reliably forecast material failures.
+
+This well-organized dataset serves not only the specific objectives of this research but also enhances the broader field of materials science. It offers valuable insights into the mechanical properties and failure mechanisms of aerospace materials, thereby contributing significant knowledge to the scientific community. Such contributions are vital for advancing understanding and technology in material durability and safety.
 
 
 
 \vspace{\baselineskip}
-To tailor the dataset for algorithmic analysis, unnecessary metadata detailing technical specifications such as the view field, working distance (WD), and beam intensity (BI) was removed from each image. This cleansing process was accomplished by cropping the images to a uniform resolution of 4096 by 4096 pixels, thereby eliminating any extraneous data. The primary objective of this preprocessing step was to refine the dataset to ensure that the learning algorithms are focused solely on the pertinent features of the specimens. By concentrating on these relevant aspects, the approach significantly enhances the potential for accurate analysis by the subsequent models. This step, crucial for maintaining the integrity and relevance of the dataset, is depicted in Figure~\ref{steps_was_done} as step '(a)'.
+\vspace{\baselineskip}
+\vspace{\baselineskip}
 
+
+
+
+
+
+\section{Proposed Artificial Intelligence-driven Framework}
+\label{Sec: Proposed Artificial Intelligence-driven Framework}
+\subsection{Preliminary Operations}
+\label{subsec:preliminary_operations}
+
+\textcolor{green}{The conversion of raw data into a format suitable for deep learning was conducted using TensorFlow, an esteemed open-source machine learning framework renowned for its robust capabilities in image processing and model development. This preliminary phase involved several critical steps to refine the dataset for comprehensive analysis with our specialized UNet models, thereby ensuring the accurate representation of material fracture complexities. }
+
+TensorFlow provided a comprehensive suite of pre-built functions and methods which were instrumental in this process. The \texttt{tf.data.Dataset.from\_tensor\_slices} method was utilized to create a scalable and efficient input pipeline, facilitating the seamless handling of large datasets. For image preprocessing, the \texttt{tf.image.resize} function was employed to standardize the dimensions of the images, while \texttt{tf.image.convert\_image\_dtype} was used to normalize pixel values. Additionally, the \texttt{tf.keras.preprocessing.image.ImageDataGenerator} function enabled real-time data augmentation, significantly enhancing the diversity of the training dataset without necessitating additional manual annotations.
+
+The selection of TensorFlow over other machine learning frameworks was driven by several distinct advantages. Firstly, TensorFlow’s integration with Keras provided a high-level interface that simplified the development and implementation of complex deep learning models. Secondly, TensorFlow's robust support for distributed computing facilitated the efficient training of models across multiple GPUs, thereby considerably reducing the training time. Furthermore, TensorFlow's extensive community support and comprehensive documentation greatly assisted in troubleshooting and optimizing the deep learning pipeline. These attributes rendered TensorFlow the optimal choice for managing the sophisticated image processing and deep learning tasks requisite for this study.
+
+This preparatory phase was indispensable in refining the dataset for in-depth analysis using our UNet models, ensuring an accurate depiction of the material fracture complexities.
+
+\subsubsection{Image Resizing and Cropping}
+The first step was to adjust the resolution of the Scanning Electron Microscope (SEM) images from their original size of 4576x4096 pixels to a more uniform and manageable size of 4096x4096 pixels. This specific size was chosen based on preliminary experiments which showed it retained sufficient detail while removing irrelevant peripheral details like metadata, which could interfere with the analysis. These peripheral details were identified and removed by inspecting the edges of the images where metadata and non-informative borders were typically located. By standardizing the resolution across the dataset, we ensured consistency, which streamlined the automated processing and boosted the efficiency of model training. The process of resizing and cropping is visually documented in Figure~\ref{steps_was_done}, marked as step (a).
 
 \begin{figure*}[h!]
   \centering
-  \includegraphics[width=1\linewidth, height=0.47\textheight]{figures/steps_dataset3.png}
-  \caption{Overview of the dataset preparation process: (a) Cropping images to remove metadata and standardize resolution; (b) Division to train and test set, 50 images for training and 13 for test; (c) Reduce resolution to 128*128 pixels for make the UNet models less complicated; (d) Final images with masks applied for model training.}
+  \includegraphics[width=1\linewidth, height=0.47\textheight]{figures/steps_dataset4.png}
+  \caption{Overview of the dataset preparation process: (a) Cropping images to remove metadata and standardize resolution; (b) Division to train and test set, 50 images for training, 6 for validation and 7 for test; (c) Reduce resolution to 128 X 128 pixels using tensorflow for make the UNet models less complicated (this image in '(c)' demonstrate only the decrease in resolution for the first UNet model for extract the external contour); (d) Final images with masks applied for model training (also here, this is only for the UNet that extract the external contour.}
   \label{steps_was_done}
 \end{figure*}
 
-
-In addition to preprocessing, the dataset underwent augmentation to enhance the robustness of the UNet models without increasing the overall number of images. Augmentation techniques such as rotation, flipping, and scaling were applied to simulate a variety of viewing angles and specimen orientations. This process was essential for preparing the models to recognize and analyze specimens under diverse conditions, thereby improving their ability to generalize from the training data to new, unseen images. Although the dataset size remained unchanged, the augmentation significantly diversified the range of features that the models were exposed to during training.
-\vspace{\baselineskip}
-
-Our research utilizes two distinct UNet models designed for complementary analytical tasks. The first model's objective is to extract the external contours of the specimens, effectively separating the subject of interest from the background. The second model focuses on identifying and segmenting regions within the specimens where cracks are present, providing critical insights into areas indicative of material failure.
-
-
-
-The manual labeling process was an essential step in preparing the dataset for the training of these models. Experts meticulously annotated the external boundaries of the specimens for contour extraction and marked the regions exhibiting cracks for focused analysis by the second model. This manual intervention ensures that the models are trained on accurate and relevant features, significantly enhancing their analytical capabilities. An example of the labeling process for the two UNet models is shown in Figure~\ref{lables}, where 'A','B','C' are the original image after crop, the external boundary of the specimen that was done manually, and the mask the first UNet will get later as labeld data, accordingly.
-'D','E','F' are the original image after crop, the boundary of specimen crack, and the mask the second UNet will get as labeld data, accordingly.
+\subsubsection{Manual Labeling for External Contour Detection}
+\textcolor{green}{Following the image resizing, a manual labeling process was conducted for the initial UNet model, which is tasked with detecting the external contours of the specimens. We developed a Python script that allowed us to draw contours on the images, which then generated the corresponding masks as shown in Figure~\ref{lables}. To ensure consistency across different images and labels, the labeled images were reviewed by experts in fracture studies to verify that the marked areas accurately represented the regions of interest. This validation step was crucial for maintaining the accuracy of the ground truth data, which is essential for training the model and evaluating its precision in contour detection. Although less complex, the accuracy of this process is vital as it sets the foundational data from which the model learns to differentiate the specimen from its background. The process for delineating these external boundaries, corresponding to steps 'A', 'B', and 'C' in the research, is illustrated in Figure~\ref{lables}. This manual delineation ensures that the model is trained on accurate and relevant features, enhancing its capability to perform precise external contour detection. }
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=1\textwidth]{figures/lables.png}
-  \caption{Manual labeling process illustrated for the two UNet models. The top row ('A', 'B', 'C') demonstrates the stages for external contour detection: 'A' shows the cropped input image, 'B' depicts the manually identified external contour of the specimen, and 'C' presents the generated mask, which serves as labeled data for training the first UNet model. The bottom row ('D', 'E', 'F') outlines the crack detection process: 'D' is the cropped input image, 'E' highlights the manually delineated crack within the specimen, and 'F' shows the corresponding mask created for use as labeled data in training the second UNet model.}
+  \caption{Manual labeling process illustrated for the two UNet models. The top row ('A', 'B', 'C') demonstrates the stages for external contour detection: 'A' shows the cropped input image, 'B' depicts the manually identified external contour of the specimen, and 'C' presents the generated mask, which serves as labeled data for training the first UNet model. The bottom row ('D', 'E', 'F') outlines the crack detection process: 'D' is the cropped heatmap input image, after the detection of the first UNet model and after applying Sobel and sliding window algorithms, 'E' highlights the manually delineated crack within the heatmap specimen, and 'F' shows the corresponding mask created for use as labeled data in training the second UNet model.}
   \label{lables}
 \end{figure}
 
-Following this detailed annotation work, the dataset was divided, with 50 images allocated to the training set and the remaining 13 to the test set. This division ensures a robust training regime and an effective evaluation framework for both UNet models, facilitating comprehensive learning and accurate performance assessment.
+\subsubsection{Dataset Division and Resolution Adjustment}
+Following the completion of the manual labeling process, the dataset underwent a structured division into distinct sets for training, validation, and testing, consisting of 50, 6, and 7 images, respectively. The choice of 128x128 pixels for model input was determined through experiments that balanced model complexity and performance. This resolution was chosen because it provided good results while simplifying the model. When dealing with images of 4096x4096 pixels, each pixel acts as a neuron in the network, making the model very heavy and complex due to the vast amount of data it needs to handle. By resizing to 128x128 pixels, the model's complexity is significantly reduced, making it more manageable while still being able to infer accurate results from the data. This strategic segmentation ensures a comprehensive evaluation framework, balancing the distribution of images to optimize both model training and validation phases effectively.
 
-This division of the dataset into the training and test sets is detailed in Table~\ref{tab:dataset_division}, providing a clear overview of the distribution of images and ensuring a balanced approach for model training and validation.
+After segmentation, each image was resized to 128x128 pixels. This adjustment aligns the image dimensions with the neural network's input specifications, ensuring that the data fed into the model is consistent and manageable. Moreover, smaller image sizes facilitate faster processing speeds, which are essential for efficient model training, particularly when iterating over multiple epochs to fine-tune model parameters. This step enhances the training process in terms of speed and aids in achieving high levels of accuracy with less computational resource expenditure. This dataset division and resolution adjustment are meticulously documented in Figure~\ref{steps_was_done}, marked as steps (b) and (c) accordingly, and detailed quantitatively in Table~\ref{tab:dataset_division}, where the structured distribution of the dataset is outlined to underscore the balanced methodological approach adopted for model training and validation.
 
 \begin{table}[htbp]
 \centering
 \small
-\caption{Division of the dataset into training and test sets}
+\caption{Division of the dataset into training, validation, and test sets}
 \label{tab:dataset_division}
 \begin{tabular}{@{}lcc@{}}
 \toprule
 \textbf{Dataset} & \textbf{Number of Images} & \textbf{Percentage (\%)} \\ \midrule
 Training Set & 50 & 79.37 \\
-Test Set & 13 & 20.63 \\ \bottomrule
+Validation Set & 6 & 9.5 \\ \bottomrule
+Test Set & 7 & 11.1 \\ \bottomrule
 \textbf{Total} & \textbf{63} & \textbf{100} \\ \bottomrule
 \end{tabular}
 \end{table}
 
-Through this comprehensive dataset preparation, encompassing precise image selection, preprocessing, manual labeling, and strategic division, we have established a solid foundation for the UNet models. This foundation is critical for accurately analyzing and learning from the SEM images of Ti-6Al-4V fatigue specimens, enhancing the reliability and efficacy of our material failure analysis.
+\subsubsection{Normalization of Pixel Values}
+After dividing the dataset into training, validation, and test sets, and adjusting their resolution, the next crucial step involves normalizing each pixel's intensity. Originally, pixel values in the images range from 0 to 255, representing the full spectrum of brightness levels from black to white. To prepare these images for effective machine learning analysis, we normalized these values to a scale between 0 and 1. This normalization is critical because it standardizes the input data, ensuring that the neural network processes each image under consistent conditions.
 
+In this study, normalization was implemented using TensorFlow’s image processing functions. Specifically, the pixel values were scaled down to a range between 0 and 1. Normalization mitigates issues arising from varied lighting conditions or differences in exposure among the original images, which could potentially skew the model's learning process. By scaling down the pixel values, the network's training becomes more focused on detecting meaningful patterns and structures in the data rather than being misled by intensity variations that do not represent relevant material characteristics.
 
-\vspace{\baselineskip}
-\vspace{\baselineskip}
-\vspace{\baselineskip}
-
-
-
-
-\section{Proposed Artificial Intelligence-driven framework}
-\label{Sec: Proposed Artificial intelligence-driven framework}
-\subsection{Preliminary Operations}
-\label{sec:prelimnary_operations}
-
-In the progression from raw data to a format amenable for deep learning analysis, we employed TensorFlow, an open-source machine learning framework that offers extensive libraries for developing and training AI models. TensorFlow's functionalities were instrumental in our Preliminary Operations, enhancing the dataset readiness for analysis through our dual UNet models and ensuring the data accurately captures the complexities of material fractures.
-
-\subsubsection{Dataset Refinement for Deep Learning}
-As part of the dataset refinement, we utilized TensorFlow to resize the images to a manageable resolution of 128x128 pixels. This adjustment balances the necessity of maintaining essential microstructural details against the constraints of computational efficiency. Alongside resizing, TensorFlow facilitated the normalization of each pixel value to a range between 0 and 1. This normalization process standardizes the input data, aiding the models' learning algorithms by providing a consistent scale for image intensities.
+This step enhances the model's ability to generalize from the training data to new, unseen scenarios by emphasizing the structural content of the images over their absolute pixel intensities. Such uniformity is vital for maintaining the reliability and consistency of the detection and analysis processes across the entire dataset.
 
 \subsubsection{Data Augmentation Strategy}
-To bolster the training dataset diversity and better simulate varied imaging conditions, we leveraged TensorFlow data augmentation capabilities. Implementing strategic transformations—rotations, flips, and zooms—augmented the dataset comprehensiveness without distorting the inherent properties of the material microstructures. These steps, crucial for enhancing model robustness and generalizability, underscore TensorFlow pivotal role in preparing data that empowers our models to more accurately identify and classify fracture patterns.
+\textcolor{green}{To bolster model robustness and safeguard against overfitting, TensorFlow’s advanced data augmentation capabilities were integrated into the training process. This involved applying a variety of transformations such as random rotations, flips, zooms, translations, and contrast adjustments to the training images. These modifications effectively increase the diversity of the dataset by simulating potential real-world variations that the models might encounter, without the need to physically expand the dataset with additional images.}
 
-\subsubsection{Model-Specific Adjustments}
-Precise adjustments were made to cater to the specialized requirements of our two UNet models. Contrary to the image resizing and normalization tasks where TensorFlow capabilities were leveraged for efficiency, the process of labeling for model training was conducted manually. This manual labeling was crucial for ensuring the accuracy of the dataset, particularly for the tasks at hand. For the model tasked with extracting external contours, establishing a clear demarcation between the specimen and its background was paramount, necessitating a nuanced understanding and interpretation of the images that automated processes could not achieve. Similarly, the manual identification and labeling of internal features such as cracks were critical for the second model, which focuses on internal contour detection. These painstakingly detailed manual annotations ensure that the models receive data that is optimally aligned with their analytical objectives, underscoring the indispensable role of expert knowledge in the initial stages of model preparation. While TensorFlow played a pivotal role in the data preprocessing and augmentation stages, the manual labeling process highlights the synergy between human expertise and advanced machine learning technologies in developing robust AI-driven frameworks for material science.
+The augmentation process was implemented using the following parameters:
+\begin{itemize}
+    \item \textbf{Random Flip:} Applied horizontal flips to the images and masks.
+    \item \textbf{Random Rotation:} Rotations were applied with a factor of 0.2, meaning the images could be rotated up to approximately 20 degrees.
+    \item \textbf{Random Zoom:} Zoom adjustments were made with height and width factors of 0.2, allowing the images to be zoomed in or out by 20%.
+    \item \textbf{Random Translation:} Translations were applied with height and width factors of 0.2, shifting the images by up to 20% in either direction.
+    \item \textbf{Random Contrast:} Contrast adjustments were made with a factor of 0.2 to enhance the image variations.
+\end{itemize}
 
-Through the application of TensorFlow in these Preliminary Operations, we have ensured our dataset is not only meticulously prepared but also optimized for the specific demands of deep learning analysis. By leveraging TensorFlow for image resizing, pixel normalization, and targeted data augmentation, we have established a robust foundation for our analytical models. This preparation enhances both the efficiency of model training and the accuracy of predictive outcomes, highlighting TensorFlow integral role in advancing the application of artificial intelligence in material science.
 
+The empirical selection of these parameters was guided by initial experimentation and observations. The augmentation strategies were chosen based on their ability to enhance model performance during training. Specifically, these augmentations helped the model generalize better by exposing it to a broader range of variations in the training data, which is crucial for handling diverse real-world scenarios.
 
-
-
+By exposing the models to a wide range of variations, they learn to recognize and interpret the underlying patterns in the images more reliably, regardless of changes in orientation, scale, or perspective. This approach enhances the models' adaptability and ensures consistent performance when faced with new and varied scenarios, a key advantage in practical applications where conditions can vary significantly from those seen during training.
 
 \begin{figure}[t!]
   \centering
-
   \begin{minipage}{1\textwidth}
     \centering
     \includegraphics[width=1\textwidth,height=6.5in]{figures/steps_dataset2.png}
-    \caption{\textcolor{red}{add description In the caption of what is shown in each image.}The steps that was done on input image}
+    \caption{Sequential image processing steps from raw input to final result. 'A' shows the original SEM image at 4576x4096 pixels. 'B' depicts the image after cropping unnecessary bottom parts to standardize at 4096x4096 pixels. 'C' represents the image after resolution reduction to 128x128 pixels for model processing. 'D' captures the detection of external contours by the first UNet model. 'E' presents these contours on a black background for clarity. 'F' is the heatmap created using Sobel and sliding window algorithms to highlight detailed features. 'G' illustrates the heatmap at reduced resolution, prepping for the second UNet model. 'H' shows the detection of internal contours by the second model. 'I' displays the final image, highlighting the ellipse that marks the transition from fatigue to static fracture in the material specimen.}
     \label{steps}
   \end{minipage}
-
 \end{figure}
 
-\subsection{Description of Conceptual Training Algorithm} \label{sec:alg_train}
+\subsubsection{Enhancing Image Details for Secondary Analysis}
+\textcolor{green}{Following the segmentation of external contours by the first UNet model, the resultant images, initially resized to 128x128 pixels for processing efficiency, are scaled back to their original resolution of 4096x4096 pixels. This resizing is pivotal for detailed secondary analysis, enabling the application of advanced image processing techniques essential for high-precision analysis. In this phase, edge definition is enhanced, and heatmaps are generated using Sobel operators and sliding window techniques, which are integral to capturing critical structural details.}
 
-To segment SEM images for fracture detection, our training algorithm employed two U-Net models in a systematic approach. The algorithm's steps, detailed below, correspond to Figure~\ref{steps}, which illustrates the progression from raw images to refined fracture detection.
+To enhance the interpretability of images and emphasize important features, heat-maps are incorporated. Activation maps, such as Grad-CAM, prioritize the significance of image features or pixels identified by the model. Heat-maps visually represent these properties across the image surface, with varying colors indicating data intensity. This visualization is valuable for tasks such as pinpointing specific objects within an image and detecting anomalies—key aspects of fatigue failure analysis. Extracting these features allows neural network models to utilize validated prior knowledge, deepening the understanding of fatigue failure mechanisms \cite{selvaraju2017grad}.
+
+Following the integration of heat maps to emphasize critical features, calculating the magnitude of gradients using the Sobel operator on an image is a technique used to enhance the image by detecting edges for easier analysis.
+However, the edges detected by the Sobel operator tend to be thicker, which can affect the accuracy of feature extraction. This makes it challenging to rely solely on the Sobel operator without a deep understanding of the data being used.
+Recent studies have demonstrated the necessity of gradient magnitude calculations, along with a technique to dilate the features, to improve detection accuracy on the edge of bridge cracks \cite{wang2019research}.
+
+The gradient magnitude indicates the intensity of the gradient at each pixel, calculated using the formula:
+\begin{equation}
+\label{eq:magnitude}
+M=\sqrt{G_x^{^2}+G_y^{^2}}
+\end{equation}
+where $G_x$ and $G_y$ are the gradients in the $x$ and $y$ directions, respectively.
+
+Gradient magnitude can be calculated using the Sobel operator, a discrete differentiation operator that computes an approximation of the gradient of the image intensity function. The result at each point in the image is either the corresponding gradient vector or the norm of this vector. The Sobel operator is based on convolving the image with a small, separable, and integer-valued filter in the horizontal and vertical directions, making it relatively inexpensive in terms of computations. Smoothing the gradient using a sliding window technique helps reduce noise and enhance the clarity of the gradient, facilitating easier detection and analysis of features in the image.
+
+\begin{equation}
+\label{eq:gradient}
+G=\sqrt{\frac{1}{n^{^2}}\sum_{i=1}^{n}\sum_{j=1}^{n}I_{i,j}^{^2}}
+\end{equation}
+where $I_{i,j}$ is the intensity of the pixel in the $i$ row and $j$ column.
+\begin{figure*}[h!]
+  \centering
+  \includegraphics[width=1\linewidth]{figures/heatmap_generation.png}
+  \caption{Transition from grayscale image to heatmap: (A) Original SEM image after crop metadata, (B) Grayscale image, (C) Gaussian blurred image, (D) Sobel operator applied in the x-axis, (E) Sobel operator applied in the y-axis, (F) Combined Sobel operator result, (G) Sliding window result, (H) Histogram equalization, (I) Final heatmap.}
+  \label{fig:transition_heatmap}
+\end{figure*}
+To elucidate the transition from input images after crop the metadata to heatmaps, consider the following steps depicted in Figure~\ref{fig:transition_heatmap}:
+
+\begin{enumerate}
+    \item \textbf{Original Image (A)}: The initial step involves the acquisition of high-resolution Scanning Electron Microscope (SEM) images.
+    \item \textbf{Grayscale Conversion (B)}: The SEM image is converted to a grayscale image, which standardizes pixel values to range from 0 (black) to 255 (white). This conversion enhances computational efficiency for subsequent image processing algorithms.
+    \item \textbf{Gaussian Blurring (C)}: The grayscale image undergoes Gaussian blurring using a Gaussian kernel. This process smooths out rapid intensity changes, thereby ensuring that only significant edges are detected in subsequent steps.
+    \item \textbf{Sobel Operator - X Axis (D)}: The Sobel operator is applied to the blurred image to detect edges along the x-axis, highlighting vertical edges.
+    \item \textbf{Sobel Operator - Y Axis (E)}: Similarly, the Sobel operator is applied to detect edges along the y-axis, highlighting horizontal edges.
+    \item \textbf{Combined Sobel Operator Result (F)}: The overall gradient magnitude at each pixel is calculated by combining the gradients in both x and y directions, resulting in a comprehensive edge map. This magnitude is then normalized to ensure pixel values range between 0 and 255.
+    \item \textbf{Sliding Window Technique (G)}: A sliding window technique is employed to analyze small localized regions of the edge map, calculating aggregated edge information within each window. This technique helps create a detailed heatmap that visualizes the intensity and distribution of edges across the image.
+    \item \textbf{Histogram Equalization (H)}: The gradient magnitude map undergoes histogram equalization. This process adjusts the histogram of the image to ensure that pixel intensity values are evenly distributed across the entire range, thereby enhancing contrast and making details more visible.
+    \item \textbf{Final Heatmap Generation (I)}: Finally, the equalized image is converted into a color-coded heatmap using a color map. In this heatmap, low intensity values are mapped to blue, mid-range values to green, and high intensity values to red, effectively highlighting areas of interest.
+\end{enumerate}
+
+This detailed process, from the initial image preprocessing and manual labeling to the generation of heatmaps, ensures that the data used for training the second UNet model is of high quality and relevance. These enhanced images facilitate accurate internal contour detection, which is critical for analyzing the intricate details of material fractures.
+
+By thoroughly preparing the images through these steps, the study ensures that the neural network models are trained on robust, high-quality data, thereby improving the accuracy and reliability of the segmentation results. This methodical approach not only enhances the models performance but also contributes significantly to the understanding of material behavior under stress conditions, advancing the field of material science.
+
+\subsubsection{Manual Labeling for Internal Contour Detection}
+\textcolor{green}{Following the generation of heatmaps, the research progresses to a meticulous phase of manual labeling, targeting internal contours such as cracks and fractures within the heatmap images. This crucial step, indispensable for the training of the second UNet model, demands extreme precision to ensure the accuracy of fracture detection. The manual labeling is methodically performed on the enhanced heatmaps, focusing on the subtle nuances that denote potential material failures. This labeling process corresponds to steps 'D', 'E', and 'F' in Figure~\ref{lables}, explicitly designed for the internal contour detection by the second UNet model. }
+
+The criteria used for identifying relevant features during manual labeling included the visibility of distinct fracture lines, variations in color intensity that indicate material stress, and structural anomalies such as micro-cracks. These features were consistently identified across the dataset by adhering to a set of guidelines and protocols developed in consultation with experts in material science. The labeling process involved using specialized software tools that allowed for precise contour drawing and annotation.
+
+To maintain consistency and accuracy, the labeled images were reviewed and validated by experts in fracture studies. This validation process involved cross-checking the manually labeled contours with the actual features observed in the SEM images and heatmaps. Any discrepancies were discussed and resolved through iterative refinement, ensuring that the ground truth data accurately represented the regions of interest.
+
+These comprehensive procedures—from the initial image preprocessing and manual labeling to subsequent data augmentation—demonstrate the thoroughness required to leverage artificial intelligence effectively in material science analysis. By rigorously preparing the data through these steps, the research ensures that the trained models are not only equipped with high-quality, relevant data but are also robust and capable of addressing complex tasks in materials engineering with a high degree of reliability.
+
+
+
+
+\section{Description of Conceptual Training Algorithms}
+\label{sec:DescriptionConceptualTrainingAlgorithms}
+
+\textcolor{green}{This section builds upon the core principles of neural networks discussed in Section~\ref{sec:network_terms} and employs the preparatory data handling techniques outlined in Section~\ref{subsec:preliminary_operations}. We detail the specialized adaptations of the U-Net architecture, specifically tailored for segmenting external and internal contours in SEM (Scanning Electron Microscope) images. These enhancements address the unique challenges posed by SEM images, transforming them into analyzable components that advance our understanding of material properties.}
+
+SEM images, characterized by intricate textures and subtle gradations, require sophisticated segmentation methods. Traditional techniques often fail to delineate the nuanced features crucial for detailed analysis. This section explains how we adapt U-Net, a model proven in medical imaging, to the complexities of material science, integrating advanced computational techniques for practical, reliable results.
+
+By refining the U-Net architecture to process SEM images and heatmaps effectively, we enable deeper exploration of materials' microstructural characteristics. This is vital for identifying failure points and understanding material behavior under stress. Our goal is to create a robust framework that segments images with high precision, contributing significantly to materials science by offering insights crucial for developing safer, more durable materials.
+
+\subsection{Customization of U-Net Architecture for Contour Detection}
+\label{subsec:UNetArchitectureCustomization}
+
+The U-Net architecture is adapted for the specific tasks of external and internal contour detection, enhancing its ability to process and analyze the complex textures and variations typical in SEM images.
+
+\subsubsection{External Contour Detection}
+For external contour detection, we employ a U-Net model with a MobileNetV2 backbone that is pre-trained on the extensive ImageNet dataset. This setup leverages advanced feature extraction capabilities while optimizing the training process.
 
 \begin{itemize}
-  \item \textbf{Image Preparation:}
-  The SEM images were first cropped to focus on the specimen area Figure~\ref{steps} ('A'). These images were then resized from the original resolution to a uniform resolution of 4096x4096 pixels Figure~\ref{steps} ('B'), and subsequently reduced further to 128x128 pixels Figure~\ref{steps} ('C') for computational efficiency during model training.
+    \item \textbf{Model Configuration:} The U-Net model utilizes MobileNetV2 as the contracting path due to its efficient architecture of depthwise separable convolutions. This feature significantly reduces computational load while preserving the ability to capture essential details through deep feature maps. The expansive path of the U-Net reconstructs the segmentation map from these encoded features, integrating upscaling operations and skip connections. These skip connections are vital for maintaining the integrity of detailed features that are typically lost in deeper layers of the network, thereby enhancing the precision of the segmented output.
 
-  \item \textbf{External Contour Identification:}
-  The first U-Net model learned to identify and extract the external contour of the specimens from the downscaled images, differentiating the area of interest from the background Figure~\ref{steps} ('D'). The result was a clear image showcasing only the specimen against a black background Figure~\ref{steps} ('E').
+    \item \textbf{Selection of MobileNetV2:} MobileNetV2 was chosen due to its efficient architecture, which balances computational cost and model accuracy. Its depthwise separable convolutions are particularly advantageous for SEM image segmentation, where high-resolution and detailed feature extraction are essential. This architecture allows for the processing of large SEM images without compromising detail, which is crucial for identifying minute features and contours in material studies.
 
-  \item \textbf{Heatmap Generation:}
-  To emphasize the fracture details, a heatmap was created using edge enhancement techniques Figure~\ref{steps} ('F'). The heatmap was then downsampled to the lower resolution of the second U-Net model's input Figure~\ref{steps} ('G').
+    \item \textbf{Pre-training on ImageNet:} ImageNet is a large visual database designed for use in visual object recognition research, containing millions of images across thousands of categories. Pre-training on ImageNet helps the model learn a wide array of features relevant to general image recognition tasks. By leveraging these pre-trained weights, the model can recognize complex patterns and structures within the SEM images more quickly and accurately. This pre-training significantly accelerates the initial phases of training, as the model already understands a wide variety of features.
 
-  \item \textbf{Internal Contour Segmentation:}
-  The second U-Net model used the rescaled heatmap to detect the internal contours indicative of fractures Figure~\ref{steps} ('H'), providing a detailed map of the fracture lines.
+    \item \textbf{Transfer Learning and Fine-Tuning:} During fine-tuning, the weights are adapted to the specific characteristics of SEM images. Challenges such as overfitting were mitigated by employing techniques like dropout and learning rate adjustments. Regularization methods ensured the model generalized well to the specialized SEM images, and learning rates were dynamically adjusted to refine feature detection without significant overfitting. Specific data augmentations tailored to SEM images, such as random rotations and zooms, further improved the model's performance.
 
-  \item \textbf{Fracture Localization:}
-  The segmented fracture map was then upscaled to the original high-resolution format, facilitating a detailed analysis of the fractures in context with the SEM image Figure~\ref{steps} ('I'). This high-resolution fracture map is pivotal for examining the specifics of the material failure.
+    \item \textbf{Resolution Handling:} The original high-resolution SEM images, with dimensions of 4096x4096 pixels, are resized to 128x128 pixels, as discussed in Section~\ref{subsec:preliminary_operations}. This substantial reduction balances maintaining sufficient detail for accurate segmentation while optimizing computational resources. The resizing ensures that the network processes the images efficiently, focusing on essential features necessary for detecting external contours without being overwhelmed by the computational demands of processing full-resolution images.
 \end{itemize}
 
-The application of U-Net models to fracture detection in SEM images exemplifies the synergy of machine learning and material science. This methodological framework enhances the accuracy and efficiency of fracture analysis, paving the way for advanced research in materials engineering.
+By integrating MobileNetV2 with U-Net and leveraging the pre-trained weights, the model benefits from efficient feature extraction and accelerated training processes. This approach ensures the model is highly effective in segmenting external contours, providing detailed and accurate outputs essential for material characterization and subsequent analyses.
 
-
-
-
-\subsubsection{Training and Validation}
-Our models underwent a rigorous training regimen, involving the following steps:
+\subsubsection{Internal Contour Detection Using Heatmaps}
+The internal contour detection model is specifically configured to process heatmaps generated from the outputs of the external contour detection. These heatmaps are crucial as they highlight areas within the SEM images that potentially contain fractures. The ability to accurately interpret and segment these indications is key to understanding material failures at a microstructural level.
 
 \begin{itemize}
-  \item \textbf{Augmentation and Regularization:} To prepare our dataset, we augmented the images to introduce variations that the models might encounter in real-world scenarios. Techniques such as rotation, flipping, and scaling were employed. To avoid overfitting, we also incorporated regularization strategies, which ensure that our models maintain generalizability.
+    \item \textbf{Enhanced Feature Sensitivity:} To effectively capture the subtle variations depicted in the heatmaps, the convolutional layers of the U-Net are meticulously fine-tuned. The kernels and filters within these layers are adjusted to have heightened sensitivity to slight textural and color gradients in the heatmaps. Specifically, convolutional layers with a kernel size of 3x3 and a stride of 1 were employed. These parameters were determined through experimentation, balancing the need for detailed feature extraction with computational efficiency. The small kernel size allows the network to learn intricate patterns, while the stride ensures all spatial information is retained.
 
-  \item \textbf{Loss Function Optimization:} The models were optimized using a loss function suitable for segmentation tasks, which evaluated the accuracy of the model's predictions against the known annotations. This optimization used the Adam algorithm, due to its efficiency with large datasets and its automatic tuning of the learning rate.
+    \item \textbf{Weight Initialization and Adaptation:} Initially, the U-Net model employs weights that are pre-trained on general imaging tasks using the ImageNet dataset, as discussed in Section~\ref{subsec:UNetArchitectureCustomization}. For internal contour detection, these weights are extensively adapted through further training on a dataset comprised of heatmaps paired with their corresponding labeled masks. Challenges in adapting pre-trained weights included managing overfitting and ensuring the model could generalize from natural images to SEM-specific features. Techniques like dropout and learning rate adjustments were used to mitigate these challenges.
 
-  \item \textbf{Monitoring Model Performance:} The models segmentation performance was closely monitored using a validation dataset, which was not part of the training data. The Intersection over Union (IoU) and Dice coefficient metrics provided quantitative measures of the models' accuracy, informing any necessary adjustments during the training phase.
+    \item \textbf{Precision in Feature Mapping:} The upsampling layers in the U-Net model are crucial for reconstructing a detailed segmentation output from the compressed feature maps produced by the contracting path. These layers are calibrated to precisely map high-resolution features, ensuring that the reconstructed images retain essential details necessary for accurate internal contour segmentation. This calibration involves adjusting the upscaling algorithms to enhance clarity and detail in the output images, ensuring that the boundaries of internal contours are sharply defined and accurately positioned relative to the original heatmap inputs.
 
-  \item \textbf{Hyperparameter Tuning:} We tuned the hyperparameters, including learning rate and batch size, to ensure the models were learning effectively without overfitting. This fine-tuning was guided by the models' performance on the validation set.
+    \item \textbf{Integration with Advanced Segmentation Techniques:} To further enhance the segmentation accuracy, the model integrates advanced techniques such as batch normalization and dropout within the upsampling path. Batch normalization helps in stabilizing the learning process by normalizing the input layers, reducing internal covariate shift. Dropout, on the other hand, prevents overfitting by randomly omitting subsets of features during the training process. These techniques ensure that the model not only learns efficiently but also generalizes well to new, unseen heatmaps.
 
+    \item \textbf{Training and Optimization:} The model is compiled using the Adam optimizer, known for its efficiency in handling sparse gradients and adaptive learning rate optimization. Adam combines the advantages of the Adaptive Gradient Algorithm (AdaGrad) and Root Mean Square Propagation (RMSProp), maintaining per-parameter learning rates adapted based on first and second moments of the gradients. This optimizer improves convergence speed and model performance. Training involves processing images in batches of 4, chosen to balance memory management and computational efficiency. Empirical evidence suggests that smaller batch sizes allow for more frequent updates and can lead to better model performance. The buffer size is set to 1000, ensuring that a sufficient number of images are prefetched and ready for processing, optimizing the input pipeline for training.
+
+    \item \textbf{Data Augmentation:} Data augmentation techniques are employed to enhance the model's robustness against overfitting and improve its ability to generalize to new, unseen data. Augmentations include:
+        \begin{enumerate}
+            \item \textbf{Random Flip:} Horizontal flips of the input images and masks to introduce left-right symmetry in the dataset.
+            \item \textbf{Random Rotation:} Rotations up to 20 degrees to make the model invariant to the orientation of fractures.
+            \item \textbf{Random Zoom:} Zooms in and out by 10\% to help the model learn to recognize features at different scales.
+            \item \textbf{Random Translation:} Translations by 10\% along height and width to improve the model’s ability to detect features that are slightly shifted.
+            \item \textbf{Random Contrast:} Adjustments of contrast by 10\% to make the model more robust to variations in image intensity.
+        \end{enumerate}
+        These transformations ensure that the model learns to recognize and segment contours and fractures under diverse conditions, improving its generalization capability.
+
+    \item \textbf{Early Stopping and Epoch Management:} To prevent overfitting and ensure computational efficiency, an early stopping mechanism is used. Model training is monitored for improvements in validation loss. If validation loss does not improve for 60 consecutive epochs, training is halted. This criterion helps save computational resources and avoids overfitting. The model is set to train for up to 200 epochs, with early stopping ensuring that training ceases at the optimal point. This decision was based on preliminary experiments, where the model showed significant improvement in accuracy and loss within this range, and diminishing returns beyond it.
+
+
+\subsection{Integration with Neural Network Terms}
+\label{subsec:IntegrationNeuralNetworkTerms}
+
+\subsubsection{Application of Theoretical Concepts}
+The theoretical concepts outlined in Section~\ref{sec:network_terms}, such as convolutional layers, pooling, and skip connections, are crucial for customizing the U-Net architecture to address the unique challenges posed by SEM image analysis. The following elaborates on how these concepts were applied in our model:
+
+\begin{itemize}
+    \item \textbf{Convolutional Layers:} The convolutional layers in our U-Net model utilize 3x3 kernels with a stride of 1, which were chosen based on their ability to effectively capture detailed features in SEM images. These layers scan the input images in small patches, allowing the model to learn intricate patterns such as edges, textures, and fine structures that are critical in identifying material properties. The stride of 1 ensures that each pixel's information is considered in the feature extraction process, preserving spatial resolution.
+
+    \item \textbf{Pooling Layers:} Max pooling layers are employed to downsample the images, reducing their spatial dimensions while retaining the most critical features. This reduction in dimensionality helps manage computational resources more efficiently. The pooling layers help the model become invariant to small translations, ensuring that the exact position of features does not impact the detection of important structures in SEM images.
+
+    \item \textbf{Skip Connections:} Skip connections are an integral part of the U-Net architecture, connecting the contracting and expansive paths. They enable the network to retain high-resolution details from the downsampling process and reintroduce them during upsampling. This feature is particularly important for SEM images, which contain fine-grained details necessary for accurate contour detection. Skip connections help mitigate the loss of spatial information, allowing the network to produce more precise segmentation maps.
+
+    \item \textbf{Upsampling Layers:} The upsampling layers, also known as transposed convolutions, are designed to increase the spatial resolution of the feature maps. These layers use learned parameters to scale up the dimensions, ensuring that the fine details captured during the downsampling process are accurately reconstructed. This upsampling is essential for generating high-resolution segmentation outputs that maintain the structural integrity of the detected features.
 \end{itemize}
 
-\subsubsection{Resolution Enhancement and Final Analysis}
-After the training phase, the second U-Net model's outputs were upscaled to the original image resolution Figure~\ref{steps} ('I'), where we could examine the fracture patterns in detail. The final step involved overlaying an ellipse over the high-resolution heatmap to demarcate the region of material failure, offering a clear and detailed representation of the fractures within the material.
+\subsubsection{Adaptation to SEM Image Analysis}
+The adaptation of neural network principles to SEM image analysis involves several specific modifications to address the unique challenges of these images:
 
-The comprehensive training algorithm presented here, documented step-by-step from Figure~\ref{steps} A to I, illustrates the transformative power of U-Net models in material science. By systematically training the models to identify and segment fractures within SEM images, we've demonstrated the potential of deep learning for advanced materials analysis, contributing a novel approach to the understanding of fracture mechanics.
+\begin{itemize}
+    \item \textbf{Convolutional Layers:} The convolutional layers configurations, with 3x3 kernels and a stride of 1, were fine-tuned through extensive experimentation. This setup strikes a balance between capturing detailed features and maintaining computational efficiency. The small kernel size is crucial for learning intricate patterns within SEM images, such as microstructural details and fracture lines.
+
+    \item \textbf{Pooling Layers:} Max pooling is applied to downsample the feature maps, effectively reducing their spatial dimensions while retaining critical features. This approach is vital for handling the large, high-resolution SEM images, as it decreases the computational burden without losing essential information.
+
+    \item \textbf{Skip Connections:} These connections link corresponding layers in the contracting and expansive paths, ensuring that high-resolution information is preserved and utilized during upsampling. This preservation of detail is crucial for accurate segmentation, as SEM images require precise delineation of features.
+
+    \item \textbf{Upsampling Layers:} The upsampling layers, calibrated to map high-resolution features precisely, are essential for reconstructing detailed segmentation outputs. This precise mapping ensures that the boundaries of internal contours are sharply defined and accurately positioned relative to the original heatmap inputs.
+\end{itemize}
+
+By applying and adapting these theoretical concepts, the U-Net architecture is effectively customized to address the specific challenges of SEM image analysis, achieving high accuracy and robustness in segmenting complex microstructural features.
 
 
 
 
-\clearpage
+
+
+
+
 
 \subsection{\textcolor{red}{Hypothesis validation}}
 A fundamental metric for evaluating classification models, and to a certain extent segmentation tasks, is the accuracy metric. For the U-Net model, accuracy is computed for each pixel within the image, followed by an aggregation to obtain the mean accuracy. This process involves classifying each pixel based on whether it falls within the predicted contour. Accuracy for an individual image is determined by the ratio of correctly classified pixels to the total number of pixels in that image. Consequently, the mean accuracy is derived from the average of these accuracy values across all images.
@@ -595,12 +756,30 @@ N & = \text{Total number of images in the dataset.} \\
 \text{Number of Correct Classifications}_i & = \text{Count of correctly classified pixels in the $i^{th}$ image.} \\
 \text{Total Number of Pixels}_i & = \text{Total pixel count in the $i^{th}$ image.}
 \end{align*}
-
-Another common metric, which specifically addresses the evaluation of model performance in segmentation tasks, is the Intersection over Union (IoU) metric. The IoU objective is to compare the intersection of the predicted segmentation with the ground truth relative to their combined area. The IoU is calculated as follows:
+\textcolor{green}{Another common metrics, which specifically addresses the evaluation of model performance in segmentation tasks, are the Intersection over Union (IoU) and Dice Coefficient.
+The IoU objective is to compare the intersection of the predicted segmentation with the ground truth relative to their combined area. The IoU is calculated as follows:
 \begin{equation}
 \text{IoU} = \frac{\text{Area of } (X \cap Y)}{\text{Area of } (X \cup Y)}
 \end{equation}
 where $X$ and $Y$ are the predicted segmentation and the ground truth, respectively.
+The Dice coefficient, also known as the F1 score, evaluates the overlap between the twice the intersection of the predicted segmentation and the ground truth relative to the sum of their areas. The Dice coefficient is calculated as follows:
+\begin{equation}
+\text{Dice} = \frac{2 \times \text{Area of } (X \cap Y)}{\text{Area of } (X \cup Y)}
+\end{equation}
+where $|X|$ and $|Y|$ are the areas of the predicted segmentation and the ground truth, respectively.
+To mitigate the impact of class imbalance on the model's evaluation, the \( F_{\beta} \) score is used as the evaluation metric instead of the standard F1 score. The \( F_{\beta} \) score allows for a flexible balance between precision and recall by introducing the parameter \(\beta\), which adjusts the weight of recall relative to precision.}
+
+The \( F_{\beta} \) score is defined as:
+
+\[
+\text{F}_{\beta} = (1 + \beta^{^2}) \times \frac{\text{Precision} \times \text{Recall}}{(\beta^{^2} \times \text{Precision}) + \text{Recall}}
+\]
+
+where \(\beta\) determines the relative importance of recall in the calculation.
+
+In this study, for the external contour detection model, \(\beta\) is set to 0.5 to emphasize precision over recall, whereas for the internal contour detection model, \(\beta\) is set to 1.5, emphasizing recall over precision.
+
+
 In the training phase, the U-Net model was evaluated using loss and accuracy metrics for each epoch on both the training and validation datasets.
 The model weights were selected from the epoch that yielded the lowest loss on the validation dataset.
 An early stopping method based on the validation loss was employed to determine when to halt the training.
@@ -613,24 +792,28 @@ Training was structured into epochs, with the number of steps per epoch determin
 
 The U-Net model uses pretrained ImageNet weights for its downsampling path, while its upsampling path is trained from scratch. This strategy leverages the rich feature representations learned from the large and diverse ImageNet dataset, facilitating better initial performance and faster convergence on the specific dataset in use.
 
-Evaluation metrics, including mean accuracy and the Intersection over Union (IoU), were used to evaluate the model's performance on the test dataset, with the results are presented in Table \ref{tab:unet_performance}.
+Evaluation metrics, including mean accuracy and the Intersection over Union (IoU), were used to evaluate the model's performance on the test dataset, with the results are presented in Table \ref{tab:unet_performance}. The accuracy metrics indicate an enhanced performance by the model in identifying internal contours on the validation dataset relative to the training dataset. This improvement is hypothesized to stem from the implementation of augmentation on the training dataset, an approach not adopted for the validation dataset. The use of an augmented training dataset likely makes it more challenging for the model to detect internal contours within the training dataset itself. This could contribute to the increased difficulty in detecting internal contours in the training dataset.
+
+Furthermore, the lower IoU score compared to accuracy, as detailed in Table \ref{tab:unet_performance}, suggests that IoU is more focused on accurately outlining shapes rather than balancing shape types. Unlike accuracy, IoU more precisely captures the complexity of contour outlines and the aspect of class distribution.
+
+The model demonstrates indeed convergence of the loss function, and minimal variance at the point marked by the green line, which represents the point with minimal validation loss (as presented in Figs.~\ref{fig:model_performance_graphs}c and~\ref{fig:model_performance_graphs}d).
 
 \begin{table}[ht]
 \centering
-\begin{tabular}{lccc}
+\begin{tabular}{lcccc}
 \hline
-Model & Best Epoch & Accuracy (\%) & IoU (\%) \\ \hline
-U-Net (External Contours) & 18 & 99.0 & 97.8 \\
-U-Net (Internal Contours) & 157 & 95.0 & 87.6 \\ \hline
+Model & Best Epoch & Acc. (\%) & IoU (\%) & F1 (\%)\\ \hline
+U-Net (Ext. Contours) & 18 & 99.0 & 97.8 & 99.3 \\
+U-Net (Int. Contours) & 157 & 95.0 & 87.6 & 87.4 \\ \hline
 \end{tabular}
 \caption{Accuracy metrics for U-Net models on External and Internal Contour detection.}
 \label{tab:unet_performance}
 \end{table}
 
-
-
 % print the model performance graphs
-\begin{figure}[t!]
+
+
+\begin{figure}[bh!]
     \centering
     % Adjust the width and height parameters as needed to fit the image without cropping
     \begin{adjustbox}{max width=\linewidth, max height=\textheight}
@@ -641,12 +824,20 @@ U-Net (Internal Contours) & 157 & 95.0 & 87.6 \\ \hline
 \end{figure}
 
 
+
+
+
+
+
+
 \section{Validation cases}
 \label{Sec: Validation cases}
 
 \subsection{Fractographic Analysis - Manual Versus Image Processing}
 \label{Subsec: Experimental Results}
-\textcolor{green}{fractographic analysis observed without computer vision. Presenting higher resolution images from different sections in the interface. Discussing the ability to perform the analysis without the CV. Presenting results including heatmap and fractography conclusions. Presenting high-resolution images that confirm the results }
+\textcolor{green}{fractographic analysis observed without computer vision. Presenting higher resolution images from different sections in the interface. Discussing the ability to perform the analysis without the CV. Presenting results including heatmap and fractography conclusions. Presenting high-resolution images that confirm the results.
+}
+
 This subsection details the fractographic analysis conducted utilizing the Sobel magnitude heatmap and the U-Net model, comparing these results with those obtained through validated processes.
 Initially, it focuses on the evaluation of the Sobel magnitude heatmap, and subsequently, it presents the outcomes from the application of the U-Net model in locating the crack front and the whole fracture surface.
 
@@ -654,6 +845,7 @@ Initially, it focuses on the evaluation of the Sobel magnitude heatmap, and subs
 The heatmap evaluation was conducted manually by experts in mechanical engineering.
 By analyzing lower scale Scanning Electron Microscope (SEM) images, a sample from each distinct color area was selected for manual analysis from a set of specimens. Through this examination, the expert could identify the crack phase associated with each colored region of the heatmap.
 The heatmap was segmented into five distinct areas, each representing a different phase of crack development: "dark red" for crack initiation, "red" and "light blue" for crack propagation, "blue" for final failure, and "broken" for areas unaffected by the crack, indicating the static phase of crack growth. From each of these areas, an image was selected, and its corresponding crack phase was manually identified by the expert. The outcomes of this manual analysis are depicted in Figure \ref{fig:heatmap_manual_analysis}.
+
 
 \begin{figure}[ht!]
 \centering
@@ -677,7 +869,7 @@ Those are compared to the results of the U-Net models, presented in Figs.~\ref{f
 
 %in green write to complete physics and engineering notes in gerrn font
 
-\textcolor{green}{TO DO: Adding analysis of the results from prespective of the physical and engineering aspects.}
+\textcolor{green}{TO DO: Adding analysis of the results from the perspective of the physical and engineering aspects.}
 
 \begin{figure}[ht!]
 \centering
@@ -689,36 +881,6 @@ Those are compared to the results of the U-Net models, presented in Figs.~\ref{f
 \subsection{Stress intensity factor and flow stress}
 \label{Subsec: Stress intensity factor and flow stress}
 \textcolor{green}{Presenting manually calculated SIF and SF results for 2 SLM and 2 EBM specimens.\\Presenting Values obtained using the automated model and comparing results }
-
-The proposed computer vision which was applied to identify the elliptical crack based on regions extracted from the U-Net model, that was achieved as described in section \ref{Sec: Proposed Artificial intelligence-driven framework}.
-The automated calculation of the stress intensity factor (SIF) and the flow stress was conducted for two specimens produced using Selective Laser Melting (SLM) and two specimens produced using Electron Beam Melting (EBM),
-with the results compared to the manually calculated values.
-
-The manually calculated Stress Intensity Factor (SIF) and stress flow parameters were obtained using a benchmarked tool, \textit{ImageJ}, for labeling the elliptical crack.
-These parameters were subsequently compared with those derived from an automated model.
-As illustrated in Table~\ref{tab:manual_vs_automated_results}, parameters for four different specimens were analyzed.
-The comparison between the manually calculated and the automated model results demonstrates that the percentage difference between these two methods is less than 10\%.
-
-\begin{table}[ht]
-\centering
-\caption{Manual vs. Automated Results}
-\label{manual_vs_automated_results}
-\setlength{\tabcolsep}{4pt} % Reduce padding between columns
-\renewcommand{\arraystretch}{1} % Reduce spacing between rows
-\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
-\hline
-\textbf{img\_name} & \multicolumn{2}{c|}{\textbf{From Script}} & \multicolumn{2}{c|}{\textbf{Average F1 values}} & \multicolumn{2}{c|}{\textbf{Std. F1 values}} & \multicolumn{2}{c|}{\textbf{Rel. Error (\%)}} \\ \hline
- & \textbf{F1\_c} & \textbf{F1\_e} & \textbf{F1\_c} & \textbf{F1\_e} & \textbf{F1\_c} & \textbf{F1\_e} & \textbf{F1\_c} & \textbf{F1\_e} \\ \hline
-P1MF13\_N & 1.424 & 1.747 & 1.261 & 1.929 & 0.098 & 0.213 & 12.93 & 9.43 \\ \hline
-P1MF17\_N & 1.069 & 1.516 & 1.477 & 2.399 & 0.124 & 0.267 & 27.62 & 36.81 \\ \hline
-P1MF19\_N & 1.089 & 1.557 & 1.356 & 1.967 & 0.0915 & 0.258 & 19.69 & 20.84 \\ \hline
-P1MF1\_C & 1.181 & 1.756 & 1.449 & 2.338 & 0.109 & 0.238 & 18.50 & 24.89 \\ \hline
-P2MF17\_C & 1.288 & 1.906 & 1.320 & 2.057 & 0.050 & 0.103 & 2.42 & 7.34 \\ \hline
-P2MF17\_N & 1.283 & 1.976 & 1.318 & 2.054 & 0.076 & 0.167 & 2.66 & 3.80 \\ \hline
-\end{tabular}
-\end{table}
-
-
 Next, an example of a calculation of $\sigma_{net}$ is presented.
 The calculation is conducted for specimen P1MF19.
 The crack is marked with a yellow polygon, as shown in Fig.~\ref{fig:P1MF19}.
@@ -741,7 +903,7 @@ This finding shows the need for automatic marking of the crack.
 
 %
 %
-Here continued the detail on the $\sigma_{net}$ AI model.
+\textcolor{green}{Here continued the detail on the $\sigma_{net}$ AI model.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -766,7 +928,7 @@ This is the value of $F_I$ at the middle of the crack front.
 The value of $F_I$ for $\frac{a}{b}=0, \frac{a}{D}=0.454$ and $\frac{x}{h}=1$, using eq.~(\ref{eq:F_I}), is ~1.402 (kana"l).
 This is the value of $F_I$ at the edges of the crack front.
 Using eq.~(\ref{eq:K_I__F_I}) and noting $\sigma_0=634$~MPa, $K_I=56~\mbox{MPa}\sqrt{\mbox{m}}$ and $K_I=75\mbox{MPa}\sqrt{\mbox{m}}$ at the middle and at the edges of the crack front, respectively.
-The value of the critical stress intensity factor, $K_Ic$, is $70~\mbox{MPa}\sqrt{\mbox{m}}$.
+The value of the critical stress intensity factor, $K_{Ic}$, is $70~\mbox{MPa}\sqrt{\mbox{m}}$.
 The value of $K_I$ at the middle of the crack front is much lower than the critical value.
 The value of $K_I$ at the edges of the crack front is similar to the critical value.
 It seems that the reason of the failure is due to the large $\sigma_{net}$ presented in Section~\ref{Subsec: Flow stress calculation model}.
@@ -775,12 +937,36 @@ If the value was indeed such large, the crack should have propagated to the edge
 
 
 
-\section{Conclusions and future work}
+\section{Conclusions and Future Work}
 \label{Sec: Conclusions and future work}
-\textcolor{green}{summary\\advantages of the heat map and the automatic calculation}
 
-\section{Acknowledgments}
-This work was supported by the ..
+\subsection{Conclusions}
+This study demonstrated the effective adaptation of the U-Net architecture for the segmentation of external and internal contours in scanning electron microscope (SEM) images, significantly enhancing both the accuracy and efficiency of material analysis. Through the integration of sophisticated neural network techniques, specifically tailored for the complexities of SEM data, our customized U-Net model has shown robust capabilities in detailed feature extraction and precise image segmentation.
+
+A key innovation in our approach was the implementation of heatmaps for internal contour detection. These heatmaps have proven indispensable in identifying and localizing fracture zones within materials, providing a high level of detail that facilitates in-depth analysis of material behavior and failure mechanisms. Additionally, the development of automatic calculation methods, utilizing these heatmaps, has markedly improved the speed and reliability of analyses, reducing the dependence on labor-intensive manual methods and enhancing the objectivity of the results.
+
+\subsection{Advantages of Heatmap Use and Automated Calculations}
+The introduction of heatmap techniques has transformed the process of SEM image analysis by providing a clear and intuitive visual representation of critical structural features within materials. These heatmaps enable analysts to focus their efforts more effectively, ensuring that potential issues are quickly identified and addressed. The automation of the segmentation process, built on this heatmap foundation, has brought several significant advantages:
+\begin{itemize}
+    \item \textbf{Reduced Need for Expert Analysis:} The automation significantly reduces the reliance on fractographic experts for initial image evaluations, allowing them to focus on complex analyses where human expertise adds the most value.
+    \item \textbf{Increased Accuracy:} Automated tools minimize human error and provide a consistent standard for identifying and analyzing material defects.
+    \item \textbf{Enhanced Efficiency:} The reduction in manual intervention speeds up the analysis process, allowing for quicker decision-making in research and development.
+    \item \textbf{Standardization:} Automated calculations ensure that results are reproducible and comparable across different studies and settings, facilitating broader scientific validation.
+\end{itemize}
+
+\subsection{Future Work}
+To build on the successes of this project, future research directions include:
+\begin{itemize}
+    \item \textbf{Algorithm Enhancement:} Further refinement of the U-Net algorithms will focus on increasing their adaptability and efficiency, particularly for SEM images with varying quality and complexity.
+    \item \textbf{Material Diversity:} Expanding the model’s application to include a broader range of materials and conditions will help verify its effectiveness and adaptability in diverse scientific fields.
+    \item \textbf{Complementary Imaging Techniques:} Integrating the U-Net architecture with other imaging technologies could provide a more holistic view of material properties and interactions.
+    \item \textbf{Real-time Analysis Capabilities:} Developing real-time processing features would be invaluable for dynamic testing environments where immediate results can dramatically enhance workflow efficiency.
+    \item \textbf{Advanced Machine Learning Models:} Incorporating cutting-edge machine learning methods, such as deep reinforcement learning or generative adversarial networks (GANs), could further improve the predictive power and analytical capabilities of the models.
+\end{itemize}
+
+The methodologies developed and refined in this study hold great promise for transforming material science research, with the potential to significantly advance our understanding and development of new materials. As these techniques evolve, their impact on the field is expected to grow, leading to more efficient material design and more effective failure analysis processes.
+
+
 
 
 %% The Appendices part is started with the command \appendix;
