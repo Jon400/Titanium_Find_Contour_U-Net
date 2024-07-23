@@ -123,9 +123,10 @@
 %%             country={}}
 \author[Computer_b]{Or Haim Anidjar}
 \author[Computer_a]{Jonatan Boritski}
-\author[Computer_a]{Sapir Dahan}
-\author[soreq]{Elad Farkash}
 \author[Computer_a]{Avichay Mazin}
+\author[Computer_a]{Sapir Dahan}
+\author[Afeka]{Oz Golan}
+\author[soreq]{Elad Farkash}
 \author[fracture]{Mor Mega}
 %\author[Computer_a,Computer_a,Computer_b]{Avichay Mazin$^a$, Jonatan Boritski$^a$, Or Anijar$^b$, Sapir Dahan$^a$, Elad Farkash$^c$, Mor Mega$^d$}
 
@@ -222,15 +223,25 @@ However, EBM operates on a much wider scale compared to SLM.}
 \subsection{Challenges in Additive Manufacturing}
 \textcolor{green}{
 
-The SLM process has intrinsic limitations, such as the formation of uncontrolled defects, including porosity, cracks, and inclusions, which can significantly impair the mechanical properties of the final product. The shift in the field of fracture mechanics from evaluating static material properties such as strength and toughness to analyzing dynamic properties like fatigue and fracture behavior has been a significant development. This shift is crucial for understanding the material's performance under dynamic loading conditions, such as heat, pressure, vibration, and cyclic loading.
+The SLM process has intrinsic limitations, such as the formation of uncontrolled defects, including porosity, cracks, and inclusions, which can significantly impair the mechanical properties of the final product. The shift in the field of fracture mechanics from evaluating static material properties such as strength and toughness to analyzing dynamic properties like fatigue and fracture behavior has been a significant development. This shift is crucial for understanding the material's performance under dynamic loading conditions, such as heat, pressure, vibration, and cyclic loading.}
 
-Fatigue failure of engineering components and structures results from progressive fracture caused by cyclic or fluctuating loads. Fatigue is an important potential cause of mechanical failure because most engineering components or structures can be subjected to cyclic loads during their lifetime.
+
+\subsection{Fatigue Characterisitcs of Additive Manufactured Alloys}
+
+\textcolor{green}{Fatigue failure of engineering components and structures results from progressive fracture caused by cyclic or fluctuating loads. Fatigue is an important potential cause of mechanical failure because most engineering components or structures can be subjected to cyclic loads during their lifetime.
 An abbreviated summary of fatigue processes and mechanisms: fatigue crack initiation, propagation, and final fracture. Characteristic fatigue fracture features that can be visually discerned under low magnification are then described.
 Typical microscopic features observed on structural metals are presented.}
+
+\textcolor{green}{
+The flow stress and stress intensity factor are critical parameters for predicting the final failure of a specimen under cyclic fatigue loading. The flow stress parameter, \(\sigma_{\text{net}}\), is related to the applied force and the uncracked area of the specimen. When \(\sigma_{\text{net}}\) reaches the failure stress, \(\sigma_f\), the specimen fails, and crack initiation occurs. The stress intensity factor, \(K_I\), is linked to the fracture toughness, \(K_{IC}\), of the material. When \(K_I\) reaches \(K_{IC}\), crack propagation occurs. Once the crack reaches the critical size, the specimen fractures completely. Understanding \(\sigma_{\text{net}}\) and \(K_I\) is crucial for predicting material failure, designing safe structures, and selecting appropriate materials. These parameters illustrate internal resistance and stress concentration around cracks, thereby preventing catastrophic failures and enhancing material robustness.}
+\textcolor{green}{
+Fatigue crack propagation can be divided into three stages: initiation, propagation, and final fracture. In Stage I, the initiation stage, cracks propagate along high shear stress planes (45 degrees) with microstructural barriers like grain boundaries decelerating the process. Surface treatments such as shot peening and surface rolling increase the number of microstructural barriers, helping to prevent fatigue cracks. Stage II begins with an increase in the stress intensity factor, \(K\), which predicts the stress state near the crack tip due to remote load or residual stresses. The value of \(K\) depends on sample geometry, crack size and location, and load distribution. As \(K\) increases from crack growth or higher applied loads, slips develop near the crack tip. Stage III is the unstable part of crack growth, occurring when \(K_{\text{max}}\) approaches \(K_{IC}\). This leads to rapid material failure due to cyclic static mode failures, with significant sensitivity to microstructure, load ratio, and stress state. The instability of Stage III limits the information extractable from its surface \cite{newman1981empirical}.}
+
 \begin{comment}
     In \textcolor{red}{need more up to date papers if these are examples for papers that made use of the method we are using... If not, then examples of what are these?}~\cite{astiz1986incompatible,carpinteri1992stress,carpinteri1992elliptical}, models for predicting the stress intensity factor for such a geometry were proposed.
-\end{comment}
+
 \textcolor{green}{Additive Manufacturing\\Fatigue\\Fractografic analysis and surface regions\\stress intensity factor calculation models\\flow stress calculation models\\It may be useful to solve this using computer vision methods  (no equations, just references)}
+\end{comment}
 
 \subsection{Computer Vision and Machine Learning in Additive Manufacturing}
 \textcolor{green}{
@@ -343,7 +354,7 @@ where $\sigma_{max}$ is the maximum applied stress in each fatigue cycle, \(A_0\
 %
 
 \subsubsection{Stress intensity factor calculation model}
-\label{Subsec: Stress intensity factors calculation model}
+\label{Subsec: Stress intensity factor calculation model}
 %
 %
 \begin{table}[t!]
@@ -707,6 +718,7 @@ The internal contour detection model is specifically configured to process heatm
         These transformations ensure that the model learns to recognize and segment contours and fractures under diverse conditions, improving its generalization capability.
 
     \item \textbf{Early Stopping and Epoch Management:} To prevent overfitting and ensure computational efficiency, an early stopping mechanism is used. Model training is monitored for improvements in validation loss. If validation loss does not improve for 60 consecutive epochs, training is halted. This criterion helps save computational resources and avoids overfitting. The model is set to train for up to 200 epochs, with early stopping ensuring that training ceases at the optimal point. This decision was based on preliminary experiments, where the model showed significant improvement in accuracy and loss within this range, and diminishing returns beyond it.
+\end{itemize}
 
 
 \subsection{Integration with Neural Network Terms}
@@ -813,10 +825,10 @@ U-Net (Int. Contours) & 157 & 95.0 & 87.6 & 87.4 \\ \hline
 % print the model performance graphs
 
 
-\begin{figure}[bh!]
+\begin{figure}[h]
     \centering
     % Adjust the width and height parameters as needed to fit the image without cropping
-    \begin{adjustbox}{max width=\linewidth, max height=\textheight}
+    \begin{adjustbox}{max width=0.8\linewidth, max height=0.8\textheight}
         \includegraphics{figures/model_performance_graphs.png}
     \end{adjustbox}
     \caption{Performance graphs for the U-Net model. The graphs show the model's accuracy and loss metrics for both training and validation datasets across epochs. (a) Accuracy of the internal contour detection model. (b) Accuracy of the external contour detection model. (c) Loss of the internal contour detection model. (d) Loss of the external contour detection model.}
@@ -825,9 +837,34 @@ U-Net (Int. Contours) & 157 & 95.0 & 87.6 & 87.4 \\ \hline
 
 
 
+\subsection{Flow Stress and Stress Intensity Factor Calculation}
+\label{subsec:FlowStressSIFCalculation}
+\textcolor{green}{
+Upon detecting the external contour of the entire specimen and the internal contour of the crack propagation zone, the stress intensity factor (SIF) and flow stress are subsequently calculated.
+
+The flow stress is evaluated according to the equation described in Section~\ref{Subsec: Flow stress calculation model}, leveraging the relationship between the areas enclosed by the external and internal contours, with the applied stress value being 634 MPa.
+
+The calculation of the SIF is outlined in Section~\ref{Subsec: Stress intensity factor calculation model}. The parameters \(a\), \(b\), and \(D\) for the ellipse are derived through geometric analysis, with the SIF being calculated for both the crack front and the middle front, corresponding to \(x/h = 0\) and \(x/h = 1\), respectively.
+The detailed steps for SIF calculation are as follows:
+
+\begin{itemize}
+    \item \textbf{Centroid Calculation:} Determine the centroids of both the external and internal contours, representing the center of gravity for each contour.
+    \item \textbf{Vector Determination:} Calculate the vector extending from the centroid of the external contour to the centroid of the internal contour, representing the direction of crack propagation.
+    \item \textbf{Elliptical Fitting:} Employ the \texttt{cv2.fitEllipse()} method to accurately fit an ellipse to the internal contour.
+    \item \textbf{Maximal Length Calculation:} Measure the maximal length of the internal contour along the determined vector direction.
+    \item \textbf{Axis Calculation:} Compute the new minor and major axes of the ellipse based on the maximal length measurement.
+    \item \textbf{Extraction of SIF Parameters:} Derive the SIF parameters \(a'\), \(b'\), and \(D'\) from the newly calculated ellipse, as illustrated in Fig.~\ref{fig:ellipse_parameters}.
+\end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/ellipse_parameters.png}
+    \caption{Illustration of the elliptical parameters \(a'\), \(b'\), and \(D'\) derived from the calculated ellipse. The parameters are used to determine the stress intensity factor (SIF) for the crack front and the middle front.}
+    \label{fig:ellipse_parameters}
+\end{figure}
 
 
-
+}
 
 
 \section{Validation cases}
@@ -842,9 +879,18 @@ This subsection details the fractographic analysis conducted utilizing the Sobel
 Initially, it focuses on the evaluation of the Sobel magnitude heatmap, and subsequently, it presents the outcomes from the application of the U-Net model in locating the crack front and the whole fracture surface.
 
 \subsubsection{Heatmap Evaluation}
+\label{Subsubsec: Heatmap Evaluation}
+
 The heatmap evaluation was conducted manually by experts in mechanical engineering.
 By analyzing lower scale Scanning Electron Microscope (SEM) images, a sample from each distinct color area was selected for manual analysis from a set of specimens. Through this examination, the expert could identify the crack phase associated with each colored region of the heatmap.
 The heatmap was segmented into five distinct areas, each representing a different phase of crack development: "dark red" for crack initiation, "red" and "light blue" for crack propagation, "blue" for final failure, and "broken" for areas unaffected by the crack, indicating the static phase of crack growth. From each of these areas, an image was selected, and its corresponding crack phase was manually identified by the expert. The outcomes of this manual analysis are depicted in Figure \ref{fig:heatmap_manual_analysis}.
+
+Consistency in the manual analysis process was maintained by establishing a set of fractorgraphic guidelines.
+The crack initiation phase, represented by the dark red area, was commonly associated with lack of fusion and porosity, and chracaterized by fish-eye patterns in the low magnification SEM images ~\cite{Fatigue life of additively manufactured Ti–6Al–4V in the very high cycle
+fatigue regime}, the area is encircled by a fine granular structure in the high magnification SEM images, however it can be challenging in a the absence of porosity, in low magnification SEM images, the crack initiation phase is characterized by a smooth feature and facets as shown in Fig.~\ref{fig:heatmap_manual_analysis}a.
+The crack propagation phase, represented by the red and light blue areas, was identified by the presence of striations accompany the crack tip which is perpendicular to the crack propagation direction ~\cite{On Fatigue Striations}, the area is characterized by a rough surface in the high magnification SEM images,  as shown in Fig.~\ref{fig:heatmap_manual_analysis}b and \ref{fig:heatmap_manual_analysis}c.
+The final failure phase, represented by the blue area, was identified by the presence of a final fracture surface, the area is characterized by an unstable fractue surface in the high magnification SEM images, as shown in Fig.~\ref{fig:heatmap_manual_analysis}d, this is the fast fracture phase.
+The static phase of crack growth, represented by the broken area, the rack is charactized by a brittle or ductile fracture surface ~\cite{Failure of metals I: Brittle and ductile fracture}, the area is chractized by a rough surface and dimples as ductile fracture features in the high magnification SEM images, as shown in Fig.~\ref{fig:heatmap_manual_analysis}e.
 
 
 \begin{figure}[ht!]
@@ -860,7 +906,10 @@ the crack propagation phase from the image in the yellow area,
 the final failure phase from the image in the green area, and the static phase of crack growth,
 from the image in the blue area.
 
+
+
 \subsubsection{U-Net Model Application Evaluation}
+\label{Subsubsec: U-Net Model Application Evaluation}
 Two distinct U-Net models were employed to analyze the SEM images of the Ti-6Al-4V fatigue specimens.
 The first model was trained to detect the external contour of the specimens, while the second model was trained to identify the internal contour.
 The performance of these models was evaluated on SEM images not included in their training set, comparing their outputs with manual segmentation of the edges within areas of interest on the heatmap, with regions displaying a gradient colored from red to blue.
@@ -879,6 +928,7 @@ Those are compared to the results of the U-Net models, presented in Figs.~\ref{f
 \end{figure}
 
 \subsection{Stress intensity factor and flow stress}
+\label{Subsec: Stress intensity factor and flow stress}
 \label{Subsec: Stress intensity factor and flow stress}
 \textcolor{green}{Presenting manually calculated SIF and SF results for 2 SLM and 2 EBM specimens.\\Presenting Values obtained using the automated model and comparing results }
 Next, an example of a calculation of $\sigma_{net}$ is presented.
@@ -941,9 +991,17 @@ If the value was indeed such large, the crack should have propagated to the edge
 \label{Sec: Conclusions and future work}
 
 \subsection{Conclusions}
-This study demonstrated the effective adaptation of the U-Net architecture for the segmentation of external and internal contours in scanning electron microscope (SEM) images, significantly enhancing both the accuracy and efficiency of material analysis. Through the integration of sophisticated neural network techniques, specifically tailored for the complexities of SEM data, our customized U-Net model has shown robust capabilities in detailed feature extraction and precise image segmentation.
+This study demonstrated the effective adaptation of the U-Net architecture for the segmentation of external and internal contours in scanning electron microscope (SEM) images, significantly enhancing both the accuracy and efficiency of material analysis. Through the integration of sophisticated neural network techniques, specifically tailored for the complexities of SEM data, the customized U-Net model has shown robust capabilities in detailed feature extraction and precise image segmentation.
 
-A key innovation in our approach was the implementation of heatmaps for internal contour detection. These heatmaps have proven indispensable in identifying and localizing fracture zones within materials, providing a high level of detail that facilitates in-depth analysis of material behavior and failure mechanisms. Additionally, the development of automatic calculation methods, utilizing these heatmaps, has markedly improved the speed and reliability of analyses, reducing the dependence on labor-intensive manual methods and enhancing the objectivity of the results.
+A key innovation in this approach was the implementation of heatmaps for internal contour detection. These heatmaps have proven indispensable in identifying and localizing fracture zones within materials, providing a high level of detail that facilitates in-depth analysis of material behavior and failure mechanisms. Additionally, the development of automatic calculation methods utilizing these heatmaps has markedly improved the speed and reliability of analyses, reducing dependence on labor-intensive manual methods and enhancing the objectivity of the results (Section~\ref{Subsubsec: Heatmap Evaluation}).
+
+As demonstrated in Section~\ref{Subsec: Hypothesis Validation}, the U-Net model achieved high accuracy in detecting external and internal contours, with IOU values of 97.8\% and 87.6\%, respectively. Additionally, as mentioned in Section~\ref{Subsubsec: U-Net Model Application Evaluation}, the model successfully identified the internal and external contours of the fracture surfaces. This was confirmed through visual and quantitative comparisons with manual analyses, showcasing the model's effectiveness in detecting critical structural features.
+
+The model also demonstrated notable performance in detecting contours in specimens from Selective Laser Melting (SLM) and Electron Beam Melting (EBM) processes, albeit with slightly lower accuracy compared to the primary analysis. These specimens were extracted from SEM images.
+
+However, the model performed poorly for specimens extracted from other imaging modalities, such as Stereomicroscope.
+Further research is needed to enhance the model's adaptability to diverse imaging techniques and materials, ensuring its broad applicability in material science research and industrial quality control.
+
 
 \subsection{Advantages of Heatmap Use and Automated Calculations}
 The introduction of heatmap techniques has transformed the process of SEM image analysis by providing a clear and intuitive visual representation of critical structural features within materials. These heatmaps enable analysts to focus their efforts more effectively, ensuring that potential issues are quickly identified and addressed. The automation of the segmentation process, built on this heatmap foundation, has brought several significant advantages:
@@ -954,17 +1012,44 @@ The introduction of heatmap techniques has transformed the process of SEM image 
     \item \textbf{Standardization:} Automated calculations ensure that results are reproducible and comparable across different studies and settings, facilitating broader scientific validation.
 \end{itemize}
 
-\subsection{Future Work}
-To build on the successes of this project, future research directions include:
+
+\subsection{Potential Uses and Developments}
+
+The methodologies developed in this study have broad applications in material science research and industrial quality control. The ability to accurately segment and analyze SEM images opens up new avenues for understanding material properties, failure mechanisms, and performance characteristics.
+
+The automated calculation methods, based on the U-Net architecture and heatmap analysis, can be further refined and extended to address a wide range of material science challenges, including:
+
 \begin{itemize}
-    \item \textbf{Algorithm Enhancement:} Further refinement of the U-Net algorithms will focus on increasing their adaptability and efficiency, particularly for SEM images with varying quality and complexity.
-    \item \textbf{Material Diversity:} Expanding the model’s application to include a broader range of materials and conditions will help verify its effectiveness and adaptability in diverse scientific fields.
-    \item \textbf{Complementary Imaging Techniques:} Integrating the U-Net architecture with other imaging technologies could provide a more holistic view of material properties and interactions.
-    \item \textbf{Real-time Analysis Capabilities:} Developing real-time processing features would be invaluable for dynamic testing environments where immediate results can dramatically enhance workflow efficiency.
-    \item \textbf{Advanced Machine Learning Models:} Incorporating cutting-edge machine learning methods, such as deep reinforcement learning or generative adversarial networks (GANs), could further improve the predictive power and analytical capabilities of the models.
+    \item \textbf{Material Characterization:} The automated processes can be applied to a variety of materials, especially metals, to characterize their microstructures and fatigue failure modes under cyclic loads, and to calculate stress intensity factors, flow stresses, and other critical parameters.
+    \item \textbf{Quality Control:} The automated analysis can be integrated into industrial quality control processes to detect defects, cracks, and other anomalies in manufactured components, ensuring product reliability and safety.
+    \item \textbf{Failure Analysis:} The detailed fracture analysis enabled by the U-Net model and heatmap techniques can provide valuable insights into the root causes of material failures, guiding improvements in material design and manufacturing processes.
+    \item \textbf{Research and Development:} The automated segmentation and analysis methods can accelerate research and development efforts by providing rapid and accurate feedback on material properties and performance, facilitating the design of new materials with enhanced characteristics.
 \end{itemize}
 
-The methodologies developed and refined in this study hold great promise for transforming material science research, with the potential to significantly advance our understanding and development of new materials. As these techniques evolve, their impact on the field is expected to grow, leading to more efficient material design and more effective failure analysis processes.
+These methods can be applied to various industries, including but not limited to:
+
+\begin{itemize}
+    \item \textbf{Aerospace:} Titanium alloys are widely used in aerospace applications due to their high strength-to-weight ratio and corrosion resistance. The ability to accurately analyze microstructural features and defects in these materials is crucial for ensuring the safety and reliability of aerospace components. Additive Manufacturing (AM) still has a long way to go before it can be used in critical aerospace applications. The ability to detect and analyze defects in AM parts is essential for ensuring their structural integrity and performance. Additionally, AM tends to result in relatively high porosity, which can lead to reduced mechanical properties and fatigue life. ~\cite{montanari2023additive}
+    \item \textbf{Automotive:} The automotive industry has recently turned to the use of lightweight materials, such as titanium, to downsize components, improve fuel efficiency, and reduce emissions. AM is employed to reduce overall life cycle costs.~\cite{nyamekye2023impact}
+    \item \textbf{Biomedical:} Titanium alloys have wide applications in the biomedical field, such as dental implants and joint replacements. A weak point of Selective Laser Melting (SLM) is the presence of residual stresses, which have a significant impact on the mechanical properties of the material. These patterns of stresses are significant when producing trauma devices, where the material is subjected to high loads.~\cite{marin2023biomedical}
+\end{itemize}
+
+\subsection{Future Work}
+\textcolor{green}{Building on the successes of this project, future research directions are prioritized based on their potential impact and feasibility. Each direction aims to enhance the robustness, applicability, and efficiency of our methodologies in SEM image analysis.}
+
+\begin{itemize}
+    \item \textbf{Algorithm Enhancement:} Future work will focus on enhancing noise reduction techniques and improving edge detection. Enhanced noise reduction will make the algorithms more robust against varying SEM image qualities, while advanced edge detection will improve the accuracy of contour segmentation, particularly in complex microstructures. These refinements are crucial for ensuring reliable segmentation across diverse SEM conditions, thereby enhancing the overall effectiveness of the model.
+
+    \item \textbf{Material Diversity:} Expanding the model’s application to include a broader range of materials and conditions is essential for verifying its adaptability and effectiveness in diverse scientific fields. Future work will focus on making the model more robust to different resolutions and different materials, ensuring consistent performance across varied datasets. Additionally, the model’s adaptability to images from different imaging techniques, not just SEM, will be explored to enhance its versatility. Hypotheses for future exploration include testing the model on composites, metals, and polymers to assess its ability to detect material-specific features and provide detailed insights into structural integrity and failure mechanisms.
+
+    \item \textbf{Real-time Analysis Capabilities:} Developing real-time processing features is a promising direction for dynamic testing environments where immediate results can significantly enhance workflow efficiency. Preliminary steps include optimizing the computational efficiency of the U-Net model and employing hardware accelerations like GPUs and TPUs. Real-time capabilities will be particularly impactful in applications such as in-situ monitoring and quality control, where rapid feedback is essential.
+
+    \item \textbf{User-Friendly Software Development:} Developing user-friendly software interfaces for non-experts to utilize the model in industrial and research settings is crucial. These interfaces will make advanced image analysis accessible to a broader audience, facilitating wider adoption and application of the methodologies developed in this study.
+
+\end{itemize}
+
+The methodologies developed and refined in this study hold great promise for transforming material science research. As these techniques evolve, their impact on the field is expected to grow, leading to more efficient material design processes and more effective failure analysis.
+
 
 
 
